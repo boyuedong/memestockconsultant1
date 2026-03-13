@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.venv/
+venv/
+env/
+.env
+
+# Jupyter / IPython
+.ipynb_checkpoints/
+*.ipynb
+
+# ML artifacts & model checkpoints
+llm/sft_outputs/
+*.pt
+*.bin
+*.safetensors
+*.ckpt
+
+# Large data files (keep small CSVs, ignore full datasets)
+full_dataset_cleaned.csv
+amazon_only_enriched.csv
+amazon_only.csv
+amazon_allstocks_results.csv
+amazon_ensemble_results.csv
+amazon_unsloth_results.csv
+bad_rows_preview.txt
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
