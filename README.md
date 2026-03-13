@@ -146,7 +146,7 @@ Use unsloth for GPU/google colab, retrieve API key for MAC
 export key=
 ```
 
-To swap for a different LLM, edit `backend/services/llm_service.py` — the `_call_openai` function is the only place that needs changing.
+To swap for a different LLM, edit `backend/services/llm_service.py`
 
 ## Dependencies
 
