@@ -1,4 +1,4 @@
-# Stock Recommendation System
+# Meme Stock Consultant
 
 A multi-model stock classification and recommendation pipeline that combines traditional ML (XGBoost / LightGBM), LLM fine-tuning, and a conversational chatbot UI to generate personalized portfolio recommendations.
 
