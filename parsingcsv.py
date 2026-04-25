@@ -167,3 +167,6 @@ print("Bad rows skipped:", len(bad_records))
 print(f"Cleaned CSV saved to: {output_csv}")
 print(f"Bad row previews saved to: {bad_rows_file}")
 print(df.head())
+new_output_csv = "/Users/boyuedong/Desktop/new3/11/full_dataset_cleaned_v2.csv"
+df.to_csv(new_output_csv, index=False)
+print(f"Saved cleaned file to: {new_output_csv}")

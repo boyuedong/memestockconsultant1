@@ -37,6 +37,11 @@ export function ChatWindow({ state, onSend, onReset }: Props) {
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           <h1 className="text-sm font-semibold text-white">Investment Advisor</h1>
+          {!state.isComplete && (
+            <span className="text-[11px] text-slate-400">
+              Q{state.questionCount}/{state.totalQuestions}
+            </span>
+          )}
         </div>
         <button
           onClick={onReset}
@@ -75,7 +80,11 @@ export function ChatWindow({ state, onSend, onReset }: Props) {
       </div>
 
       {/* Input */}
-      <ChatInput onSend={onSend} disabled={state.isLoading || state.isComplete} />
+      <ChatInput
+        onSend={onSend}
+        options={state.currentOptions}
+        disabled={state.isLoading || state.isComplete}
+      />
 
       {state.isComplete && (
         <div className="px-3 pb-3">

@@ -1,22 +1,13 @@
 /**
  * Right-hand panel — shows placeholder while chatting, then the recommendation.
- * TODO: Replace mock data display with real recommendation engine output.
  */
 
-import type { InvestorProfile } from "../types/chat";
+import type { InvestorProfile, Recommendation } from "../types/chat";
 
 interface Props {
-  recommendation: unknown | null;
+  recommendation: Recommendation | null;
   profile: InvestorProfile;
   isComplete: boolean;
-}
-
-interface MockRec {
-  recommended_bucket: string;
-  reasoning: string;
-  top_stocks: string[];
-  risk_score: number;
-  expected_return: string;
 }
 
 const BUCKET_LABEL: Record<string, string> = {
@@ -36,7 +27,7 @@ export function RecommendationPanel({ recommendation, profile, isComplete }: Pro
     return <EmptyState profile={profile} />;
   }
 
-  const rec = recommendation as MockRec;
+  const rec = recommendation;
   const colorClass = BUCKET_COLOR[rec.recommended_bucket] ?? BUCKET_COLOR.mixed;
 
   return (
@@ -67,19 +58,24 @@ export function RecommendationPanel({ recommendation, profile, isComplete }: Pro
         />
       </div>
 
-      {/* Top stocks */}
-      <div>
-        <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Top Picks</p>
-        <div className="flex flex-wrap gap-2">
-          {rec.top_stocks.map((ticker) => (
-            <span
-              key={ticker}
-              className="px-3 py-1.5 rounded-lg bg-slate-700/60 border border-slate-600/40 text-sm font-mono font-semibold text-indigo-300"
-            >
-              {ticker}
-            </span>
-          ))}
-        </div>
+      {/* Two-column stock picks */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <StockListCard
+          title="Hottest Meme Stocks"
+          tickers={rec.meme_stocks}
+          accentClass="text-orange-300"
+        />
+        <StockListCard
+          title="Standard SPY-Style Picks"
+          tickers={rec.standard_stocks}
+          accentClass="text-indigo-300"
+        />
+      </div>
+
+      {/* Investor tip */}
+      <div className="rounded-xl border border-slate-700/50 bg-slate-800/40 p-4">
+        <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Quick Tip</p>
+        <p className="text-sm text-slate-200">{rec.investor_tip}</p>
       </div>
 
       {/* Investor profile summary */}
@@ -96,11 +92,8 @@ export function RecommendationPanel({ recommendation, profile, isComplete }: Pro
         </div>
       </div>
 
-      {/* TODO: connect to real comparison logic */}
       <p className="text-xs text-slate-600 text-center mt-2">
-        * Mock data — connect{" "}
-        <code className="bg-slate-800 px-1 rounded">fetchRecommendation()</code> in{" "}
-        <code className="bg-slate-800 px-1 rounded">chatApi.ts</code> to your real engine
+        * Recommendation generated from pipeline insights.
       </p>
     </div>
   );
@@ -123,6 +116,32 @@ function ProfileRow({ label, value }: { label: string; value: string | null | un
     <div className="flex justify-between text-sm">
       <span className="text-slate-500">{label}</span>
       <span className="text-slate-200 font-medium capitalize">{value ?? "—"}</span>
+    </div>
+  );
+}
+
+function StockListCard({
+  title,
+  tickers,
+  accentClass,
+}: {
+  title: string;
+  tickers: string[];
+  accentClass: string;
+}) {
+  return (
+    <div className="rounded-xl border border-slate-700/50 bg-slate-800/40 p-4">
+      <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">{title}</p>
+      <div className="flex flex-wrap gap-2">
+        {tickers.map((ticker) => (
+          <span
+            key={`${title}-${ticker}`}
+            className={`px-3 py-1.5 rounded-lg bg-slate-700/60 border border-slate-600/40 text-sm font-mono font-semibold ${accentClass}`}
+          >
+            {ticker}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }

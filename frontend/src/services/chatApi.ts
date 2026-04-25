@@ -7,6 +7,7 @@ import type {
   SendMessageResponse,
   StartResponse,
   InvestorProfile,
+  Recommendation,
 } from "../types/chat";
 
 const BASE = "/api";
@@ -52,42 +53,6 @@ export async function resetChat(sessionId: string): Promise<void> {
 
 export async function fetchRecommendation(
   profile: InvestorProfile
-): Promise<unknown> {
-  // Connect your actual recommendation/comparison API here.
-  // For now, returns a mock result after a short delay.
-  await new Promise((r) => setTimeout(r, 800));
-  return buildMockRecommendation(profile);
-}
-
-function buildMockRecommendation(profile: InvestorProfile) {
-  const { risk_tolerance, objective, priority } = profile;
-
-  let bucket: "social_buzz" | "magnificent_7" | "mixed" = "mixed";
-  if (risk_tolerance === "high" || objective === "growth" || priority === "max_return") {
-    bucket = "social_buzz";
-  } else if (risk_tolerance === "low" || objective === "stability") {
-    bucket = "magnificent_7";
-  }
-
-  const stockMap = {
-    social_buzz: ["GME", "AMC", "RIVN", "LCID", "BBBY"],
-    magnificent_7: ["AAPL", "MSFT", "GOOGL", "AMZN", "NVDA", "META", "TSLA"],
-    mixed: ["AAPL", "MSFT", "GME", "AMZN", "NVDA"],
-  };
-
-  return {
-    recommended_bucket: bucket,
-    reasoning: `Based on your ${risk_tolerance ?? "moderate"} risk tolerance and ${
-      objective ?? "balanced"
-    } objective, ${
-      bucket === "social_buzz"
-        ? "social buzz stocks offer higher upside potential."
-        : bucket === "magnificent_7"
-        ? "the Magnificent 7 provide stability and consistent growth."
-        : "a mixed portfolio balances growth and stability."
-    }`,
-    top_stocks: stockMap[bucket],
-    risk_score: risk_tolerance === "high" ? 8 : risk_tolerance === "low" ? 3 : 5,
-    expected_return: risk_tolerance === "high" ? "15–30%" : risk_tolerance === "low" ? "5–10%" : "8–15%",
-  };
+): Promise<Recommendation> {
+  return post<Recommendation>("/chat/recommend", { profile });
 }

@@ -62,10 +62,9 @@ SFT_OUT_DIR  = os.path.join(os.path.dirname(__file__), "sft_outputs")
 INPUT_CSV    = "/Users/boyuedong/Desktop/new3:11/amazon_only_enriched.csv"
 RESULTS_CSV  = "/Users/boyuedong/Desktop/new3:11/amazon_unsloth_results.csv"
 
-WINDOW_SIZE  = 5
-TRAIN_YEAR   = 2017
-TEST_YEAR    = 2018
-ITERATIONS   = 3
+WINDOW_SIZE   = 5
+TRAIN_SPLIT   = 0.70   # walk-forward: first 70% of rows → train, last 30% → test
+ITERATIONS    = 3
 
 LORA_RANK    = 8      # small rank — we have very few training examples
 LORA_ALPHA   = 16
@@ -109,6 +108,14 @@ def classify_return(r: float) -> str:
     return "definitely don't buy"
 
 
+def _fmt(val, decimals=4):
+    """Format a numeric value safely, returning 'N/A' for missing."""
+    try:
+        return f"{float(val):.{decimals}f}"
+    except (TypeError, ValueError):
+        return "N/A"
+
+
 def build_user_prompt(window_df: pd.DataFrame, target_date) -> str:
     lines = [
         f"Target date: {pd.Timestamp(target_date).strftime('%Y-%m-%d')}",
@@ -116,14 +123,45 @@ def build_user_prompt(window_df: pd.DataFrame, target_date) -> str:
     ]
     for _, row in window_df.iterrows():
         lines.append(
-            f"  {pd.Timestamp(row['DATE']).strftime('%Y-%m-%d')}  "
-            f"price={row['LAST_PRICE']:.2f}  vol={row['PX_VOLUME']:.0f}  "
-            f"vol10d={row['VOLATILITY_10D']:.3f}  vol30d={row['VOLATILITY_30D']:.3f}  "
-            f"lstm_pol={row['LSTM_POLARITY']}  tb_pol={row['TEXTBLOB_POLARITY']:.4f}  "
-            f"yf_open={row.get('YF_OPEN', 'N/A')}  yf_close={row.get('YF_CLOSE', 'N/A')}  "
-            f"yf_vol={row.get('YF_VOLUME', 'N/A')}"
+            f"\n  Date: {pd.Timestamp(row['DATE']).strftime('%Y-%m-%d')}"
+            # ── Original dataset features ──────────────────────────────
+            f"\n    price={_fmt(row.get('LAST_PRICE'), 2)}"
+            f"  px_volume={_fmt(row.get('PX_VOLUME'), 0)}"
+            f"  volatility_10d={_fmt(row.get('VOLATILITY_10D'), 3)}"
+            f"  volatility_30d={_fmt(row.get('VOLATILITY_30D'), 3)}"
+            f"\n    lstm_sentiment={_fmt(row.get('LSTM_POLARITY'), 4)}"
+            f"  textblob_sentiment={_fmt(row.get('TEXTBLOB_POLARITY'), 4)}"
+            f"  sentiment_avg={_fmt(row.get('sentiment_avg'), 4)}"
+            f"  sentiment_diff={_fmt(row.get('sentiment_diff'), 4)}"
+            # ── yfinance OHLCV ─────────────────────────────────────────
+            f"\n    yf_open={_fmt(row.get('YF_OPEN'), 2)}"
+            f"  yf_high={_fmt(row.get('YF_HIGH'), 2)}"
+            f"  yf_low={_fmt(row.get('YF_LOW'), 2)}"
+            f"  yf_close={_fmt(row.get('YF_CLOSE'), 2)}"
+            f"  yf_volume={_fmt(row.get('YF_VOLUME'), 0)}"
+            # ── Engineered return features ─────────────────────────────
+            f"\n    ret_1d={_fmt(row.get('yf_return_1'), 4)}"
+            f"  ret_3d={_fmt(row.get('yf_return_3'), 4)}"
+            f"  ret_5d={_fmt(row.get('yf_return_5'), 4)}"
+            f"  price_ret_1={_fmt(row.get('price_return_1'), 4)}"
+            f"  price_ret_5={_fmt(row.get('price_return_5'), 4)}"
+            # ── Moving averages & distance from MA ─────────────────────
+            f"\n    ma_3={_fmt(row.get('yf_close_ma_3'), 2)}"
+            f"  ma_5={_fmt(row.get('yf_close_ma_5'), 2)}"
+            f"  ma_10={_fmt(row.get('yf_close_ma_10'), 2)}"
+            f"  vs_ma3={_fmt(row.get('yf_close_vs_ma_3'), 4)}"
+            f"  vs_ma5={_fmt(row.get('yf_close_vs_ma_5'), 4)}"
+            f"  vs_ma10={_fmt(row.get('yf_close_vs_ma_10'), 4)}"
+            # ── Volume features ────────────────────────────────────────
+            f"\n    vol_change_1d={_fmt(row.get('yf_volume_change_1'), 4)}"
+            f"  volume_shock={_fmt(row.get('volume_shock'), 4)}"
+            # ── Intraday / momentum features ───────────────────────────
+            f"\n    hl_range={_fmt(row.get('hl_range'), 4)}"
+            f"  oc_change={_fmt(row.get('oc_change'), 4)}"
+            f"  rolling_vol_10={_fmt(row.get('rolling_vol_10'), 4)}"
+            f"  rsi_14={_fmt(row.get('rsi_14'), 2)}"
         )
-    lines.append("Classify the next move.")
+    lines.append("\nClassify the next move.")
     return "\n".join(lines)
 
 
@@ -187,12 +225,16 @@ def load_examples():
             "label": normalize_label(str(target_row["TARGET_LABEL"])),
         })
 
-    train_ex = [e for e in examples if e["year"] == TRAIN_YEAR]
-    test_ex  = [e for e in examples if e["year"] == TEST_YEAR]
+    # Walk-forward 70/30 chronological split (same strategy as train_walkforward.py)
+    split_idx = int(len(examples) * TRAIN_SPLIT)
+    train_ex  = examples[:split_idx]
+    test_ex   = examples[split_idx:]
 
     print(f"  Total examples : {len(examples)}")
-    print(f"  Train ({TRAIN_YEAR})   : {len(train_ex)}")
-    print(f"  Test  ({TEST_YEAR})   : {len(test_ex)}")
+    print(f"  Train (first {int(TRAIN_SPLIT*100)}%) : {len(train_ex)}  "
+          f"({train_ex[0]['date'] if train_ex else '?'} → {train_ex[-1]['date'] if train_ex else '?'})")
+    print(f"  Test  (last  {int((1-TRAIN_SPLIT)*100)}%) : {len(test_ex)}  "
+          f"({test_ex[0]['date'] if test_ex else '?'} → {test_ex[-1]['date'] if test_ex else '?'})")
 
     if train_ex:
         print("\n  Sample training example (first):")
@@ -263,12 +305,12 @@ def run_sft(model, tokenizer, corrections: list, iteration: int) -> object:
     dataset = Dataset.from_dict({"text": texts})
 
     trainer = SFTTrainer(
-        model         = model,
-        tokenizer     = tokenizer,
-        train_dataset = dataset,
+        model             = model,
+        processing_class  = tokenizer,
+        train_dataset     = dataset,
         args          = SFTConfig(
             dataset_text_field          = "text",
-            max_seq_length              = MAX_SEQ_LEN,
+            max_length                  = MAX_SEQ_LEN,
             output_dir                  = out_dir,
             num_train_epochs            = 3,
             per_device_train_batch_size = 1,

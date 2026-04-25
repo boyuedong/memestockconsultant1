@@ -1,0 +1,5 @@
+Model,N_test,Accuracy,Precision,Recall,F1
+LLM  SFT  (Qwen2.5 LoRA),96,0.6146,0.1536,0.25,0.1903
+XGB/LGBM  walk-forward,36,0.3611,0.1712,0.2221,0.1932
+XGB/LGBM  year-split,96,0.1979,0.2003,0.2034,0.1463
+XGB/LGBM  all-stocks,96,0.1146,0.1267,0.2295,0.0978

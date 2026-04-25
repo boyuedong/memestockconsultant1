@@ -1,4 +1,4 @@
-# Stock Recommendation System
+# Meme Stock Consultant
 
 A multi-model stock classification and recommendation pipeline that combines traditional ML (XGBoost / LightGBM), LLM fine-tuning, and a conversational chatbot UI to generate personalized portfolio recommendations.
 
@@ -140,46 +140,13 @@ The chatbot collects an investor profile through a guided multi-step conversatio
 
 Once all required fields are collected, it generates a personalized recommendation comparing **Social Buzz Stocks** vs **Magnificent 7**.
 
-### Chatbot API Endpoints
-
-| Method | Path | Description |
-|--------|------|-------------|
-| `POST` | `/api/chat/start` | Create session, return welcome message |
-| `POST` | `/api/chat/message` | Send user message, get assistant reply + updated profile |
-| `POST` | `/api/chat/reset` | Wipe session and restart |
-| `GET`  | `/api/chat/session/{id}` | Inspect session state (dev) |
-| `POST` | `/api/profile/extract` | Extract structured profile from free text |
-
-### Connecting a Real LLM
-
-Set `OPENAI_API_KEY` in your environment (or a `.env` file) to enable GPT-4o-mini for natural replies. Without it the chatbot uses the built-in rule-based fallback automatically.
+Use unsloth for GPU/google colab, retrieve API key for MAC
 
 ```bash
-export OPENAI_API_KEY=sk-...
+export key=
 ```
 
-To swap for a different LLM, edit `backend/services/llm_service.py` — the `_call_openai` function is the only place that needs changing.
-
-### Connecting the Real Recommendation Engine
-
-In `frontend/src/services/chatApi.ts`, replace the body of `fetchRecommendation()` with a call to your actual comparison/recommendation API.
-
----
-
-## Model Performance Summary
-
-| Model | Accuracy | Notes |
-|-------|----------|-------|
-| XGB/LGBM year-split | ~20% | 10 train rows (sparse 2017 data) |
-| XGB/LGBM walk-forward 70/30 | Best of ML | Same-stock, consistent daily data |
-| XGB/LGBM all-stocks | ~11.5% | Too much cross-stock noise |
-| Gemini zero-shot | Varies | No fine-tuning, prompt-only |
-| Qwen2.5 SFT (LoRA) | TBD | Run `llm/run_unsloth.py` to evaluate |
-
-> The walk-forward split (`train_walkforward.py`) is the most defensible approach
-> because it trains and tests on Amazon-specific data with consistent daily frequency.
-
----
+To swap for a different LLM, edit `backend/services/llm_service.py`
 
 ## Dependencies
 
@@ -188,7 +155,6 @@ In `frontend/src/services/chatApi.ts`, replace the body of `fetchRecommendation(
 pandas, numpy, scikit-learn, xgboost, lightgbm, yfinance
 fastapi, uvicorn, pydantic, python-dotenv
 transformers, peft, trl, accelerate, datasets
-openai (optional — for LLM-powered chat replies)
 ```
 
 ### Node.js (frontend)
@@ -197,3 +163,21 @@ react, react-dom, typescript, vite
 tailwindcss, postcss, autoprefixer
 uuid
 ```
+
+## Streamlit Deployment (Optional)
+
+Run a lightweight Streamlit UI backed by your pipeline outputs:
+
+```bash
+cd "/Users/boyuedong/Desktop/new3:11"
+python3 -m pip install -r requirements_streamlit.txt
+streamlit run streamlit_app.py
+```
+
+The app uses:
+
+- `selected_stocks_model_summary.csv`
+- `selected_stocks_walkforward_results.csv`
+- `backend/services/recommendation_service.py`
+
+If you use local Ollama, keep your `.env` values set (for example `LLM_PROVIDER=ollama`).

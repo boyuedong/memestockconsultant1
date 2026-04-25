@@ -10,16 +10,20 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import type { ChatState, InvestorProfile, Message } from "../types/chat";
+import type { ChatState, InvestorProfile, Message, Recommendation } from "../types/chat";
 import { fetchRecommendation, resetChat, sendMessage, startChat } from "../services/chatApi";
 
 const INITIAL_PROFILE: InvestorProfile = {
   time_horizon: null,
   risk_tolerance: null,
   objective: null,
+  preference: null,
+  loss_comfort: null,
+  diversification: null,
   sector_preferences: [],
   priority: null,
   extra_notes: "",
+  question_count: 0,
 };
 
 const INITIAL_STATE: ChatState = {
@@ -27,7 +31,17 @@ const INITIAL_STATE: ChatState = {
   profile: INITIAL_PROFILE,
   currentStep: "time_horizon",
   isComplete: false,
-  missingFields: ["time_horizon", "risk_tolerance", "objective"],
+  missingFields: [
+    "time_horizon",
+    "risk_tolerance",
+    "objective",
+    "preference",
+    "loss_comfort",
+    "diversification",
+  ],
+  currentOptions: [],
+  questionCount: 0,
+  totalQuestions: 6,
   isLoading: false,
   sessionId: null,
   error: null,
@@ -39,7 +53,7 @@ function makeMessage(role: Message["role"], content: string): Message {
 
 export function useChat() {
   const [state, setState] = useState<ChatState>(INITIAL_STATE);
-  const [recommendation, setRecommendation] = useState<unknown | null>(null);
+  const [recommendation, setRecommendation] = useState<Recommendation | null>(null);
   const sessionIdRef = useRef<string>(uuidv4());
 
   // ── Bootstrap session on mount ─────────────────────────────────────────────
@@ -53,6 +67,10 @@ export function useChat() {
           ...s,
           sessionId: res.session_id,
           messages: [makeMessage("assistant", res.welcome)],
+          currentStep: res.current_step,
+          currentOptions: res.options ?? [],
+          questionCount: res.question_count ?? 0,
+          totalQuestions: res.total_questions ?? 6,
           isLoading: false,
         }));
       } catch {
@@ -63,9 +81,7 @@ export function useChat() {
           messages: [
             makeMessage(
               "assistant",
-              "Hi! I can help recommend whether social buzz stocks or the Magnificent 7 " +
-                "better fit your goals.\n\nFirst, what's your investment time horizon? " +
-                "For example: 1 month, 3 months, 6 months, or 1 year?"
+              "Hi! I can provide an educational recommendation between meme/social-buzz picks, standard ETF-style options, or mixed allocation.\n\nQ1/6: What is your investment horizon? Options: 1 week, 1 month, 3 months, 6+ months."
             ),
           ],
           isLoading: false,
@@ -95,6 +111,9 @@ export function useChat() {
         messages: [...s.messages, assistantMsg],
         profile: res.profile,
         currentStep: res.current_step,
+        currentOptions: res.options ?? [],
+        questionCount: res.question_count ?? s.questionCount,
+        totalQuestions: res.total_questions ?? s.totalQuestions,
         isComplete: res.is_complete,
         missingFields: res.missing_fields,
         isLoading: false,
@@ -125,6 +144,10 @@ export function useChat() {
         ...INITIAL_STATE,
         sessionId: sessionIdRef.current,
         messages: [makeMessage("assistant", res.welcome)],
+        currentStep: res.current_step,
+        currentOptions: res.options ?? [],
+        questionCount: res.question_count ?? 0,
+        totalQuestions: res.total_questions ?? 6,
       });
     } catch {
       setState({
@@ -133,7 +156,7 @@ export function useChat() {
         messages: [
           makeMessage(
             "assistant",
-            "Hi! Let's start fresh. What's your investment time horizon?"
+              "Hi! Let's restart. Q1/6: What is your investment horizon? Options: 1 week, 1 month, 3 months, 6+ months."
           ),
         ],
       });

@@ -1,0 +1,641 @@
+DATE,LAST_PRICE,NEXT_PRICE,NEXT_RETURN,TARGET_LABEL,STOCK,TICKER,PREDICTED_LABEL,CORRECT
+2018-09-13,25.01,25.04,0.001199520191923134,maybe buy,hp,HPQ,don't buy,False
+2018-09-14,25.04,25.04,0.0,maybe buy,hp,HPQ,maybe buy,True
+2018-09-15,25.04,25.04,0.0,maybe buy,hp,HPQ,don't buy,False
+2018-09-16,25.04,25.01,-0.0011980830670925552,don't buy,hp,HPQ,don't buy,True
+2018-09-17,25.01,25.16,0.005997600959616096,maybe buy,hp,HPQ,maybe buy,True
+2018-09-18,25.16,25.26,0.003974562798092266,maybe buy,hp,HPQ,don't buy,False
+2018-09-19,25.26,25.69,0.017022961203483757,maybe buy,hp,HPQ,don't buy,False
+2018-09-20,25.69,25.83,0.0054495912806538345,maybe buy,hp,HPQ,don't buy,False
+2018-09-21,25.83,25.83,0.0,maybe buy,hp,HPQ,don't buy,False
+2018-09-22,25.83,25.83,0.0,maybe buy,hp,HPQ,don't buy,False
+2018-09-23,25.83,25.87,0.0015485869144406777,maybe buy,hp,HPQ,don't buy,False
+2018-09-24,25.87,25.56,-0.011982991882489457,don't buy,hp,HPQ,don't buy,True
+2018-09-25,25.56,25.97,0.01604068857589985,maybe buy,hp,HPQ,maybe buy,True
+2018-09-26,25.97,25.63,-0.013092029264535999,don't buy,hp,HPQ,don't buy,True
+2018-09-27,25.63,25.77,0.005462348809988317,maybe buy,hp,HPQ,maybe buy,True
+2018-09-28,25.77,25.77,0.0,maybe buy,hp,HPQ,maybe buy,True
+2018-09-29,25.77,25.77,0.0,maybe buy,hp,HPQ,maybe buy,True
+2018-09-30,25.77,25.6,-0.006596818005432602,don't buy,hp,HPQ,maybe buy,False
+2018-10-01,25.6,26.08,0.018749999999999878,maybe buy,hp,HPQ,maybe buy,True
+2018-10-02,26.08,23.77,-0.0885736196319018,definitely don't buy,hp,HPQ,don't buy,False
+2018-10-18,23.77,23.84,0.0029448885149348037,maybe buy,hp,HPQ,maybe buy,True
+2018-10-19,23.84,23.84,0.0,maybe buy,hp,HPQ,maybe buy,True
+2018-10-20,23.84,23.84,0.0,maybe buy,hp,HPQ,don't buy,False
+2018-10-21,23.84,24.11,0.01132550335570468,maybe buy,hp,HPQ,don't buy,False
+2018-10-22,24.11,23.94,-0.0070510161758605625,don't buy,hp,HPQ,don't buy,True
+2018-10-23,23.94,23.06,-0.03675856307435265,definitely don't buy,hp,HPQ,maybe buy,False
+2018-10-24,23.06,23.79,0.03165654813529924,must buy,hp,HPQ,don't buy,False
+2018-10-25,23.79,23.13,-0.027742749054224473,definitely don't buy,hp,HPQ,don't buy,False
+2018-10-27,23.13,23.13,0.0,maybe buy,hp,HPQ,don't buy,False
+2018-10-28,23.13,23.02,-0.004755728491137027,don't buy,hp,HPQ,maybe buy,False
+2018-10-29,23.02,23.67,0.028236316246742058,must buy,hp,HPQ,maybe buy,False
+2018-10-30,23.67,24.14,0.019856358259400034,maybe buy,hp,HPQ,maybe buy,True
+2018-09-13,112.91,113.37,0.0040740412718094764,maybe buy,microsoft,MSFT,maybe buy,True
+2018-09-14,113.37,113.37,0.0,maybe buy,microsoft,MSFT,maybe buy,True
+2018-09-15,113.37,113.37,0.0,maybe buy,microsoft,MSFT,maybe buy,True
+2018-09-16,113.37,112.14,-0.010849431066419722,don't buy,microsoft,MSFT,maybe buy,False
+2018-09-17,112.14,113.21,0.009541644373104986,maybe buy,microsoft,MSFT,maybe buy,True
+2018-09-18,113.21,111.7,-0.013338044342372502,don't buy,microsoft,MSFT,don't buy,True
+2018-09-19,111.7,113.57,0.016741271262309673,maybe buy,microsoft,MSFT,maybe buy,True
+2018-09-20,113.57,114.26,0.006075548120102245,maybe buy,microsoft,MSFT,maybe buy,True
+2018-09-21,114.26,114.26,0.0,maybe buy,microsoft,MSFT,maybe buy,True
+2018-09-22,114.26,114.26,0.0,maybe buy,microsoft,MSFT,maybe buy,True
+2018-09-23,114.26,114.67,0.0035883073691580307,maybe buy,microsoft,MSFT,maybe buy,True
+2018-09-24,114.67,114.45,-0.001918548879393031,don't buy,microsoft,MSFT,maybe buy,False
+2018-09-25,114.45,113.98,-0.004106596767147216,don't buy,microsoft,MSFT,maybe buy,False
+2018-09-26,113.98,114.41,0.003772591682751295,maybe buy,microsoft,MSFT,maybe buy,True
+2018-09-27,114.41,114.37,-0.0003496197884799584,don't buy,microsoft,MSFT,maybe buy,False
+2018-09-28,114.37,114.37,0.0,maybe buy,microsoft,MSFT,maybe buy,True
+2018-09-29,114.37,114.37,0.0,maybe buy,microsoft,MSFT,maybe buy,True
+2018-09-30,114.37,115.61,0.010842004022033705,maybe buy,microsoft,MSFT,maybe buy,True
+2018-10-01,115.61,115.15,-0.003978894559294124,don't buy,microsoft,MSFT,maybe buy,False
+2018-10-02,115.15,108.5,-0.0577507598784195,definitely don't buy,microsoft,MSFT,don't buy,False
+2018-10-18,108.5,108.66,0.0014746543778801529,maybe buy,microsoft,MSFT,maybe buy,True
+2018-10-19,108.66,108.66,0.0,maybe buy,microsoft,MSFT,maybe buy,True
+2018-10-20,108.66,108.66,0.0,maybe buy,microsoft,MSFT,maybe buy,True
+2018-10-21,108.66,109.63,0.008926928032394615,maybe buy,microsoft,MSFT,maybe buy,True
+2018-10-22,109.63,108.1,-0.013956033932317808,don't buy,microsoft,MSFT,maybe buy,False
+2018-10-23,108.1,102.32,-0.05346901017576319,definitely don't buy,microsoft,MSFT,maybe buy,False
+2018-10-24,102.32,108.3,0.05844409695074281,must buy,microsoft,MSFT,maybe buy,False
+2018-10-25,108.3,106.96,-0.012373037857802433,don't buy,microsoft,MSFT,maybe buy,False
+2018-10-27,106.96,106.96,0.0,maybe buy,microsoft,MSFT,maybe buy,True
+2018-10-28,106.96,103.85,-0.02907629020194465,definitely don't buy,microsoft,MSFT,maybe buy,False
+2018-10-29,103.85,103.73,-0.0011555127587866186,don't buy,microsoft,MSFT,maybe buy,False
+2018-10-30,103.73,106.81,0.02969247083775184,must buy,microsoft,MSFT,maybe buy,False
+2018-09-13,9.37,9.45,0.00853788687299894,maybe buy,ford,F,maybe buy,True
+2018-09-14,9.45,9.45,0.0,maybe buy,ford,F,maybe buy,True
+2018-09-15,9.45,9.45,0.0,maybe buy,ford,F,maybe buy,True
+2018-09-16,9.45,9.55,0.010582010582010732,maybe buy,ford,F,maybe buy,True
+2018-09-17,9.55,9.58,0.0031413612565444355,maybe buy,ford,F,maybe buy,True
+2018-09-18,9.58,9.78,0.02087682672233813,must buy,ford,F,maybe buy,False
+2018-09-19,9.78,9.81,0.0030674846625768034,maybe buy,ford,F,don't buy,False
+2018-09-20,9.81,9.85,0.004077471967380137,maybe buy,ford,F,don't buy,False
+2018-09-21,9.85,9.85,0.0,maybe buy,ford,F,definitely don't buy,False
+2018-09-22,9.85,9.85,0.0,maybe buy,ford,F,maybe buy,True
+2018-09-23,9.85,9.59,-0.026395939086294395,definitely don't buy,ford,F,definitely don't buy,True
+2018-09-24,9.59,9.39,-0.020855057351407642,definitely don't buy,ford,F,maybe buy,False
+2018-09-25,9.39,9.27,-0.012779552715655057,don't buy,ford,F,maybe buy,False
+2018-09-26,9.27,9.23,-0.004314994606256651,don't buy,ford,F,maybe buy,False
+2018-09-27,9.23,9.25,0.0021668472372697264,maybe buy,ford,F,maybe buy,True
+2018-09-28,9.25,9.25,0.0,maybe buy,ford,F,don't buy,False
+2018-09-29,9.25,9.25,0.0,maybe buy,ford,F,don't buy,False
+2018-09-30,9.25,9.32,0.007567567567567599,maybe buy,ford,F,don't buy,False
+2018-10-01,9.32,9.2,-0.012875536480686801,don't buy,ford,F,maybe buy,False
+2018-10-02,9.2,8.51,-0.07499999999999996,definitely don't buy,ford,F,maybe buy,False
+2018-10-18,8.51,8.5,-0.0011750881316098458,don't buy,ford,F,maybe buy,False
+2018-10-19,8.5,8.5,0.0,maybe buy,ford,F,maybe buy,True
+2018-10-20,8.5,8.5,0.0,maybe buy,ford,F,maybe buy,True
+2018-10-21,8.5,8.41,-0.010588235294117631,don't buy,ford,F,maybe buy,False
+2018-10-22,8.41,8.59,0.021403091557669406,must buy,ford,F,maybe buy,False
+2018-10-23,8.59,8.18,-0.04772991850989525,definitely don't buy,ford,F,maybe buy,False
+2018-10-24,8.18,8.99,0.09902200488997562,must buy,ford,F,maybe buy,False
+2018-10-25,8.99,8.98,-0.0011123470522802878,don't buy,ford,F,maybe buy,False
+2018-10-27,8.98,8.98,0.0,maybe buy,ford,F,maybe buy,True
+2018-10-28,8.98,9.28,0.033407572383073375,must buy,ford,F,maybe buy,False
+2018-10-29,9.28,9.46,0.019396551724138095,maybe buy,ford,F,maybe buy,True
+2018-10-30,9.46,9.55,0.009513742071881591,maybe buy,ford,F,maybe buy,True
+2018-09-13,161.36,162.32,0.005949429846306268,maybe buy,facebook,META,maybe buy,True
+2018-09-14,162.32,162.32,0.0,maybe buy,facebook,META,maybe buy,True
+2018-09-15,162.32,162.32,0.0,maybe buy,facebook,META,maybe buy,True
+2018-09-16,162.32,160.58,-0.010719566288812104,don't buy,facebook,META,maybe buy,False
+2018-09-17,160.58,160.3,-0.0017436791630340088,don't buy,facebook,META,maybe buy,False
+2018-09-18,160.3,163.06,0.0172177167810355,maybe buy,facebook,META,maybe buy,True
+2018-09-19,163.06,166.02,0.018152827180179125,maybe buy,facebook,META,maybe buy,True
+2018-09-20,166.02,162.93,-0.018612215395735474,don't buy,facebook,META,maybe buy,False
+2018-09-21,162.93,162.93,0.0,maybe buy,facebook,META,definitely don't buy,False
+2018-09-22,162.93,162.93,0.0,maybe buy,facebook,META,definitely don't buy,False
+2018-09-23,162.93,165.41,0.015221260664088809,maybe buy,facebook,META,definitely don't buy,False
+2018-09-24,165.41,164.91,-0.003022791850553171,don't buy,facebook,META,maybe buy,False
+2018-09-25,164.91,166.95,0.012370383845733988,maybe buy,facebook,META,maybe buy,True
+2018-09-26,166.95,168.84,0.011320754716981222,maybe buy,facebook,META,maybe buy,True
+2018-09-27,168.84,164.46,-0.02594171997157069,definitely don't buy,facebook,META,maybe buy,False
+2018-09-28,164.46,164.46,0.0,maybe buy,facebook,META,definitely don't buy,False
+2018-09-29,164.46,164.46,0.0,maybe buy,facebook,META,maybe buy,True
+2018-09-30,164.46,162.44,-0.012282621914143319,don't buy,facebook,META,maybe buy,False
+2018-10-01,162.44,159.33,-0.019145530657473438,don't buy,facebook,META,maybe buy,False
+2018-10-02,159.33,154.92,-0.027678403313877015,definitely don't buy,facebook,META,maybe buy,False
+2018-10-18,154.92,154.05,-0.005615801704105191,don't buy,facebook,META,maybe buy,False
+2018-10-19,154.05,154.05,0.0,maybe buy,facebook,META,maybe buy,True
+2018-10-20,154.05,154.05,0.0,maybe buy,facebook,META,maybe buy,True
+2018-10-21,154.05,154.78,0.00473872119441733,maybe buy,facebook,META,maybe buy,True
+2018-10-22,154.78,154.39,-0.0025197053882931564,don't buy,facebook,META,maybe buy,False
+2018-10-23,154.39,146.04,-0.054083813718505055,definitely don't buy,facebook,META,maybe buy,False
+2018-10-24,146.04,150.95,0.03362092577376059,must buy,facebook,META,maybe buy,False
+2018-10-25,150.95,145.37,-0.03696588274262991,definitely don't buy,facebook,META,maybe buy,False
+2018-10-27,145.37,145.37,0.0,maybe buy,facebook,META,maybe buy,True
+2018-10-28,145.37,142.09,-0.0225631148104836,definitely don't buy,facebook,META,maybe buy,False
+2018-10-29,142.09,146.22,0.02906608487578292,must buy,facebook,META,maybe buy,False
+2018-10-30,146.22,151.79,0.03809328409246337,must buy,facebook,META,definitely don't buy,False
+2018-09-13,368.15,364.56,-0.009751460002716216,don't buy,netflix,NFLX,maybe buy,False
+2018-09-14,364.56,364.56,0.0,maybe buy,netflix,NFLX,maybe buy,True
+2018-09-15,364.56,364.56,0.0,maybe buy,netflix,NFLX,maybe buy,True
+2018-09-16,364.56,350.35,-0.03897849462365586,definitely don't buy,netflix,NFLX,maybe buy,False
+2018-09-17,350.35,367.65,0.04937919223633496,must buy,netflix,NFLX,maybe buy,False
+2018-09-18,367.65,366.96,-0.0018767849857201082,don't buy,netflix,NFLX,maybe buy,False
+2018-09-19,366.96,365.36,-0.004360148245040238,don't buy,netflix,NFLX,maybe buy,False
+2018-09-20,365.36,361.19,-0.011413400481716705,don't buy,netflix,NFLX,maybe buy,False
+2018-09-21,361.19,361.19,0.0,maybe buy,netflix,NFLX,maybe buy,True
+2018-09-22,361.19,361.19,0.0,maybe buy,netflix,NFLX,maybe buy,True
+2018-09-23,361.19,369.61,0.023311830338602995,must buy,netflix,NFLX,maybe buy,False
+2018-09-24,369.61,369.43,-0.0004869998106112032,don't buy,netflix,NFLX,don't buy,True
+2018-09-25,369.43,377.88,0.022873074736756593,must buy,netflix,NFLX,maybe buy,False
+2018-09-26,377.88,380.71,0.007489149994707273,maybe buy,netflix,NFLX,don't buy,False
+2018-09-27,380.71,374.13,-0.017283496624727442,don't buy,netflix,NFLX,maybe buy,False
+2018-09-28,374.13,374.13,0.0,maybe buy,netflix,NFLX,maybe buy,True
+2018-09-29,374.13,374.13,0.0,maybe buy,netflix,NFLX,maybe buy,True
+2018-09-30,374.13,381.43,0.019511934354368834,maybe buy,netflix,NFLX,definitely don't buy,False
+2018-10-01,381.43,377.14,-0.011247148887082873,don't buy,netflix,NFLX,definitely don't buy,False
+2018-10-02,377.14,346.71,-0.0806862173198282,definitely don't buy,netflix,NFLX,maybe buy,False
+2018-10-18,346.71,332.67,-0.040494938132733305,definitely don't buy,netflix,NFLX,maybe buy,False
+2018-10-19,332.67,332.67,0.0,maybe buy,netflix,NFLX,maybe buy,True
+2018-10-20,332.67,332.67,0.0,maybe buy,netflix,NFLX,maybe buy,True
+2018-10-21,332.67,329.54,-0.009408723359485362,don't buy,netflix,NFLX,maybe buy,False
+2018-10-22,329.54,333.16,0.010985009407052267,maybe buy,netflix,NFLX,maybe buy,True
+2018-10-23,333.16,301.83,-0.09403890022811874,definitely don't buy,netflix,NFLX,don't buy,False
+2018-10-24,301.83,312.87,0.03657688102574304,must buy,netflix,NFLX,maybe buy,False
+2018-10-25,312.87,299.83,-0.04167865247546911,definitely don't buy,netflix,NFLX,maybe buy,False
+2018-10-27,299.83,299.83,0.0,maybe buy,netflix,NFLX,maybe buy,True
+2018-10-28,299.83,284.84,-0.049994997165060236,definitely don't buy,netflix,NFLX,maybe buy,False
+2018-10-29,284.84,285.81,0.0034054205869963046,maybe buy,netflix,NFLX,maybe buy,True
+2018-10-30,285.81,301.78,0.05587628144571558,must buy,netflix,NFLX,maybe buy,False
+2018-09-13,6394.0,6630.0,0.036909602752580546,must buy,sony,SONY,maybe buy,False
+2018-09-14,6630.0,6630.0,0.0,maybe buy,sony,SONY,maybe buy,True
+2018-09-15,6630.0,6630.0,0.0,maybe buy,sony,SONY,maybe buy,True
+2018-09-16,6630.0,6630.0,0.0,maybe buy,sony,SONY,maybe buy,True
+2018-09-17,6630.0,6652.0,0.0033182503770739064,maybe buy,sony,SONY,maybe buy,True
+2018-09-18,6652.0,6682.0,0.004509921828021648,maybe buy,sony,SONY,maybe buy,True
+2018-09-19,6682.0,6574.0,-0.016162825501346904,don't buy,sony,SONY,maybe buy,False
+2018-09-20,6574.0,6444.0,-0.019774870702768482,don't buy,sony,SONY,maybe buy,False
+2018-09-21,6444.0,6444.0,0.0,maybe buy,sony,SONY,maybe buy,True
+2018-09-22,6444.0,6444.0,0.0,maybe buy,sony,SONY,maybe buy,True
+2018-09-23,6444.0,6444.0,0.0,maybe buy,sony,SONY,maybe buy,True
+2018-09-24,6444.0,6658.0,0.033209186840471756,must buy,sony,SONY,maybe buy,False
+2018-09-25,6658.0,6768.0,0.016521477921297687,maybe buy,sony,SONY,maybe buy,True
+2018-09-26,6768.0,6665.0,-0.015218676122931441,don't buy,sony,SONY,maybe buy,False
+2018-09-27,6665.0,6966.0,0.04516129032258064,must buy,sony,SONY,maybe buy,False
+2018-09-28,6966.0,6966.0,0.0,maybe buy,sony,SONY,maybe buy,True
+2018-09-29,6966.0,6966.0,0.0,maybe buy,sony,SONY,maybe buy,True
+2018-09-30,6966.0,6879.0,-0.012489233419465978,don't buy,sony,SONY,maybe buy,False
+2018-10-01,6879.0,6836.0,-0.006250908562291031,don't buy,sony,SONY,maybe buy,False
+2018-10-02,6836.0,6418.0,-0.06114686951433587,definitely don't buy,sony,SONY,maybe buy,False
+2018-10-18,6418.0,6341.0,-0.011997507011530071,don't buy,sony,SONY,don't buy,True
+2018-10-19,6341.0,6341.0,0.0,maybe buy,sony,SONY,maybe buy,True
+2018-10-20,6341.0,6341.0,0.0,maybe buy,sony,SONY,don't buy,False
+2018-10-21,6341.0,6309.0,-0.005046522630499921,don't buy,sony,SONY,don't buy,True
+2018-10-22,6309.0,6184.0,-0.01981296560469171,don't buy,sony,SONY,don't buy,True
+2018-10-23,6184.0,6208.0,0.0038809831824062097,maybe buy,sony,SONY,maybe buy,True
+2018-10-24,6208.0,5869.0,-0.0546069587628866,definitely don't buy,sony,SONY,maybe buy,False
+2018-10-25,5869.0,5834.0,-0.00596353722951099,don't buy,sony,SONY,maybe buy,False
+2018-10-27,5834.0,5834.0,0.0,maybe buy,sony,SONY,maybe buy,True
+2018-10-28,5834.0,5802.0,-0.005485087418580734,don't buy,sony,SONY,must buy,False
+2018-10-29,5802.0,5862.0,0.010341261633919338,maybe buy,sony,SONY,must buy,False
+2018-10-30,5862.0,6140.0,0.047424087342204026,must buy,sony,SONY,maybe buy,False
+2018-09-13,241.27,235.38,-0.024412483939155363,definitely don't buy,costco,COST,maybe buy,False
+2018-09-14,235.38,235.38,0.0,maybe buy,costco,COST,maybe buy,True
+2018-09-15,235.38,235.38,0.0,maybe buy,costco,COST,maybe buy,True
+2018-09-16,235.38,232.0,-0.014359758688078832,don't buy,costco,COST,maybe buy,False
+2018-09-17,232.0,234.35,0.010129310344827561,maybe buy,costco,COST,maybe buy,True
+2018-09-18,234.35,233.85,-0.002133560913164071,don't buy,costco,COST,maybe buy,False
+2018-09-19,233.85,233.92,0.00029933718195421504,maybe buy,costco,COST,maybe buy,True
+2018-09-20,233.92,234.76,0.003590971272229837,maybe buy,costco,COST,don't buy,False
+2018-09-21,234.76,234.76,0.0,maybe buy,costco,COST,maybe buy,True
+2018-09-22,234.76,234.76,0.0,maybe buy,costco,COST,maybe buy,True
+2018-09-23,234.76,233.34,-0.006048730618503951,don't buy,costco,COST,don't buy,True
+2018-09-24,233.34,232.93,-0.0017570926544955713,don't buy,costco,COST,maybe buy,False
+2018-09-25,232.93,233.81,0.003777959043489441,maybe buy,costco,COST,maybe buy,True
+2018-09-26,233.81,234.0,0.0008126256362003238,maybe buy,costco,COST,maybe buy,True
+2018-09-27,234.0,234.88,0.003760683760683741,maybe buy,costco,COST,maybe buy,True
+2018-09-28,234.88,234.88,0.0,maybe buy,costco,COST,maybe buy,True
+2018-09-29,234.88,234.88,0.0,maybe buy,costco,COST,maybe buy,True
+2018-09-30,234.88,234.65,-0.0009792234332424634,don't buy,costco,COST,don't buy,True
+2018-10-01,234.65,236.35,0.007244832729597224,maybe buy,costco,COST,don't buy,False
+2018-10-02,236.35,228.58,-0.03287497355616663,definitely don't buy,costco,COST,maybe buy,False
+2018-10-18,228.58,229.67,0.004768571178580694,maybe buy,costco,COST,maybe buy,True
+2018-10-19,229.67,229.67,0.0,maybe buy,costco,COST,maybe buy,True
+2018-10-20,229.67,229.67,0.0,maybe buy,costco,COST,maybe buy,True
+2018-10-21,229.67,229.06,-0.0026559846736621466,don't buy,costco,COST,maybe buy,False
+2018-10-22,229.06,228.75,-0.001353357198987175,don't buy,costco,COST,maybe buy,False
+2018-10-23,228.75,223.76,-0.021814207650273264,definitely don't buy,costco,COST,maybe buy,False
+2018-10-24,223.76,226.4,0.011798355380765173,maybe buy,costco,COST,maybe buy,True
+2018-10-25,226.4,218.19,-0.03626325088339226,definitely don't buy,costco,COST,maybe buy,False
+2018-10-27,218.19,218.19,0.0,maybe buy,costco,COST,maybe buy,True
+2018-10-28,218.19,222.42,0.019386772996012602,maybe buy,costco,COST,maybe buy,True
+2018-10-29,222.42,227.92,0.024727992087042534,must buy,costco,COST,maybe buy,False
+2018-10-30,227.92,228.63,0.00311512811512815,maybe buy,costco,COST,maybe buy,True
+2018-09-13,549.0,550.4,0.0025500910746811974,maybe buy,bp,BP,don't buy,False
+2018-09-14,550.4,550.4,0.0,maybe buy,bp,BP,don't buy,False
+2018-09-15,550.4,550.4,0.0,maybe buy,bp,BP,maybe buy,True
+2018-09-16,550.4,548.7,-0.0030886627906975507,don't buy,bp,BP,maybe buy,False
+2018-09-17,548.7,550.1,0.002551485328959317,maybe buy,bp,BP,don't buy,False
+2018-09-18,550.1,553.4,0.005998909289220059,maybe buy,bp,BP,maybe buy,True
+2018-09-19,553.4,555.5,0.0037947235272859105,maybe buy,bp,BP,maybe buy,True
+2018-09-20,555.5,567.0,0.020702070207020702,must buy,bp,BP,maybe buy,False
+2018-09-21,567.0,567.0,0.0,maybe buy,bp,BP,maybe buy,True
+2018-09-22,567.0,567.0,0.0,maybe buy,bp,BP,maybe buy,True
+2018-09-23,567.0,570.1,0.005467372134038841,maybe buy,bp,BP,maybe buy,True
+2018-09-24,570.1,586.7,0.0291176986493598,must buy,bp,BP,don't buy,False
+2018-09-25,586.7,586.0,-0.0011931140276121449,don't buy,bp,BP,definitely don't buy,False
+2018-09-26,586.0,593.3,0.012457337883958967,maybe buy,bp,BP,definitely don't buy,False
+2018-09-27,593.3,589.3,-0.006741951795044666,don't buy,bp,BP,definitely don't buy,False
+2018-09-28,589.3,589.3,0.0,maybe buy,bp,BP,don't buy,False
+2018-09-29,589.3,589.3,0.0,maybe buy,bp,BP,definitely don't buy,False
+2018-09-30,589.3,595.3,0.010181571355845919,maybe buy,bp,BP,definitely don't buy,False
+2018-10-01,595.3,597.0,0.0028557030068873603,maybe buy,bp,BP,maybe buy,True
+2018-10-02,597.0,554.5,-0.0711892797319933,definitely don't buy,bp,BP,definitely don't buy,True
+2018-10-18,554.5,557.5,0.005410279531109108,maybe buy,bp,BP,maybe buy,True
+2018-10-19,557.5,557.5,0.0,maybe buy,bp,BP,don't buy,False
+2018-10-20,557.5,557.5,0.0,maybe buy,bp,BP,maybe buy,True
+2018-10-21,557.5,550.8,-0.012017937219731023,don't buy,bp,BP,maybe buy,False
+2018-10-22,550.8,533.2,-0.03195352214960042,definitely don't buy,bp,BP,maybe buy,False
+2018-10-23,533.2,532.9,-0.0005626406601651692,don't buy,bp,BP,maybe buy,False
+2018-10-24,532.9,535.5,0.0048789641583787255,maybe buy,bp,BP,maybe buy,True
+2018-10-25,535.5,528.1,-0.013818860877684365,don't buy,bp,BP,maybe buy,False
+2018-10-27,528.1,528.1,0.0,maybe buy,bp,BP,maybe buy,True
+2018-10-28,528.1,535.2,0.013444423404658252,maybe buy,bp,BP,maybe buy,True
+2018-10-29,535.2,546.0,0.02017937219730933,must buy,bp,BP,maybe buy,False
+2018-10-30,546.0,567.3,0.03901098901098893,must buy,bp,BP,maybe buy,False
+2018-09-13,162.4,160.84,-0.009605911330049274,don't buy,mcdonald's,MCD,maybe buy,False
+2018-09-14,160.84,160.84,0.0,maybe buy,mcdonald's,MCD,maybe buy,True
+2018-09-15,160.84,160.84,0.0,maybe buy,mcdonald's,MCD,maybe buy,True
+2018-09-16,160.84,158.14,-0.01678686893807521,don't buy,mcdonald's,MCD,maybe buy,False
+2018-09-17,158.14,157.77,-0.0023396990008851407,don't buy,mcdonald's,MCD,maybe buy,False
+2018-09-18,157.77,159.18,0.008937060277619297,maybe buy,mcdonald's,MCD,maybe buy,True
+2018-09-19,159.18,160.79,0.010114335971855667,maybe buy,mcdonald's,MCD,maybe buy,True
+2018-09-20,160.79,165.3,0.028049008022887116,must buy,mcdonald's,MCD,don't buy,False
+2018-09-21,165.3,165.3,0.0,maybe buy,mcdonald's,MCD,don't buy,False
+2018-09-22,165.3,165.3,0.0,maybe buy,mcdonald's,MCD,don't buy,False
+2018-09-23,165.3,163.31,-0.012038717483363635,don't buy,mcdonald's,MCD,maybe buy,False
+2018-09-24,163.31,166.41,0.018982303594391,maybe buy,mcdonald's,MCD,maybe buy,True
+2018-09-25,166.41,165.76,-0.003906015263505833,don't buy,mcdonald's,MCD,don't buy,True
+2018-09-26,165.76,166.53,0.004645270270270332,maybe buy,mcdonald's,MCD,maybe buy,True
+2018-09-27,166.53,167.29,0.004563742268660247,maybe buy,mcdonald's,MCD,don't buy,False
+2018-09-28,167.29,167.29,0.0,maybe buy,mcdonald's,MCD,don't buy,False
+2018-09-29,167.29,167.29,0.0,maybe buy,mcdonald's,MCD,maybe buy,True
+2018-09-30,167.29,166.67,-0.003706139039990463,don't buy,mcdonald's,MCD,maybe buy,False
+2018-10-01,166.67,165.18,-0.008939821203575813,don't buy,mcdonald's,MCD,don't buy,True
+2018-10-02,165.18,166.81,0.009868022763046345,maybe buy,mcdonald's,MCD,maybe buy,True
+2018-10-18,166.81,167.49,0.004076494214975163,maybe buy,mcdonald's,MCD,don't buy,False
+2018-10-19,167.49,167.49,0.0,maybe buy,mcdonald's,MCD,don't buy,False
+2018-10-20,167.49,167.49,0.0,maybe buy,mcdonald's,MCD,maybe buy,True
+2018-10-21,167.49,166.63,-0.005134634903576414,don't buy,mcdonald's,MCD,maybe buy,False
+2018-10-22,166.63,177.15,0.06313388945568031,must buy,mcdonald's,MCD,maybe buy,False
+2018-10-23,177.15,177.35,0.0011289867344058066,maybe buy,mcdonald's,MCD,don't buy,False
+2018-10-24,177.35,175.31,-0.01150267831970675,don't buy,mcdonald's,MCD,definitely don't buy,False
+2018-10-25,175.31,173.34,-0.011237236894643766,don't buy,mcdonald's,MCD,definitely don't buy,False
+2018-10-27,173.34,173.34,0.0,maybe buy,mcdonald's,MCD,definitely don't buy,False
+2018-10-28,173.34,173.23,-0.0006345909772701837,don't buy,mcdonald's,MCD,definitely don't buy,False
+2018-10-29,173.23,178.49,0.030364255613923797,must buy,mcdonald's,MCD,definitely don't buy,False
+2018-10-30,178.49,176.9,-0.008908062076306815,don't buy,mcdonald's,MCD,definitely don't buy,False
+2018-09-13,34.44,34.1,-0.009872241579558546,don't buy,ebay,EBAY,maybe buy,False
+2018-09-14,34.1,34.1,0.0,maybe buy,ebay,EBAY,maybe buy,True
+2018-09-15,34.1,34.1,0.0,maybe buy,ebay,EBAY,maybe buy,True
+2018-09-16,34.1,34.2,0.0029325513196481355,maybe buy,ebay,EBAY,maybe buy,True
+2018-09-17,34.2,34.12,-0.0023391812865498655,don't buy,ebay,EBAY,maybe buy,False
+2018-09-18,34.12,34.22,0.0029308323563892566,maybe buy,ebay,EBAY,maybe buy,True
+2018-09-19,34.22,34.24,0.0005844535359439838,maybe buy,ebay,EBAY,maybe buy,True
+2018-09-20,34.24,34.04,-0.005841121495327186,don't buy,ebay,EBAY,maybe buy,False
+2018-09-21,34.04,34.04,0.0,maybe buy,ebay,EBAY,maybe buy,True
+2018-09-22,34.04,34.04,0.0,maybe buy,ebay,EBAY,maybe buy,True
+2018-09-23,34.04,33.72,-0.009400705052878974,don't buy,ebay,EBAY,maybe buy,False
+2018-09-24,33.72,32.76,-0.02846975088967974,definitely don't buy,ebay,EBAY,maybe buy,False
+2018-09-25,32.76,33.58,0.025030525030525042,must buy,ebay,EBAY,maybe buy,False
+2018-09-26,33.58,33.34,-0.007147111375818788,don't buy,ebay,EBAY,maybe buy,False
+2018-09-27,33.34,33.02,-0.009598080383923223,don't buy,ebay,EBAY,maybe buy,False
+2018-09-28,33.02,33.02,0.0,maybe buy,ebay,EBAY,maybe buy,True
+2018-09-29,33.02,33.02,0.0,maybe buy,ebay,EBAY,maybe buy,True
+2018-09-30,33.02,32.51,-0.015445184736523473,don't buy,ebay,EBAY,maybe buy,False
+2018-10-01,32.51,32.56,0.0015379883112889654,maybe buy,ebay,EBAY,maybe buy,True
+2018-10-02,32.56,31.55,-0.031019656019656065,definitely don't buy,ebay,EBAY,maybe buy,False
+2018-10-18,31.55,28.75,-0.08874801901743266,definitely don't buy,ebay,EBAY,maybe buy,False
+2018-10-19,28.75,28.75,0.0,maybe buy,ebay,EBAY,maybe buy,True
+2018-10-20,28.75,28.75,0.0,maybe buy,ebay,EBAY,maybe buy,True
+2018-10-21,28.75,28.49,-0.00904347826086962,don't buy,ebay,EBAY,maybe buy,False
+2018-10-22,28.49,28.19,-0.01053001053001043,don't buy,ebay,EBAY,maybe buy,False
+2018-10-23,28.19,27.29,-0.03192621496984754,definitely don't buy,ebay,EBAY,maybe buy,False
+2018-10-24,27.29,28.06,0.028215463539758137,must buy,ebay,EBAY,maybe buy,False
+2018-10-25,28.06,27.34,-0.025659301496792547,definitely don't buy,ebay,EBAY,maybe buy,False
+2018-10-27,27.34,27.34,0.0,maybe buy,ebay,EBAY,maybe buy,True
+2018-10-28,27.34,26.82,-0.01901975128017555,don't buy,ebay,EBAY,maybe buy,False
+2018-10-29,26.82,27.42,0.0223713646532439,must buy,ebay,EBAY,maybe buy,False
+2018-10-30,27.42,29.03,0.05871626549963528,must buy,ebay,EBAY,maybe buy,False
+2018-09-13,268.52,274.69,0.02297780426039035,must buy,adobe,ADBE,maybe buy,False
+2018-09-14,274.69,274.69,0.0,maybe buy,adobe,ADBE,maybe buy,True
+2018-09-15,274.69,274.69,0.0,maybe buy,adobe,ADBE,maybe buy,True
+2018-09-16,274.69,268.25,-0.023444610287960965,definitely don't buy,adobe,ADBE,maybe buy,False
+2018-09-17,268.25,270.79,0.009468779123951615,maybe buy,adobe,ADBE,maybe buy,True
+2018-09-18,270.79,264.88,-0.021825030466413178,definitely don't buy,adobe,ADBE,maybe buy,False
+2018-09-19,264.88,266.34,0.005511929930534505,maybe buy,adobe,ADBE,maybe buy,True
+2018-09-20,266.34,260.88,-0.020500112637981453,definitely don't buy,adobe,ADBE,maybe buy,False
+2018-09-21,260.88,260.88,0.0,maybe buy,adobe,ADBE,maybe buy,True
+2018-09-22,260.88,260.88,0.0,maybe buy,adobe,ADBE,maybe buy,True
+2018-09-23,260.88,264.09,0.012304507819687135,maybe buy,adobe,ADBE,maybe buy,True
+2018-09-24,264.09,267.84,0.014199704646143362,maybe buy,adobe,ADBE,maybe buy,True
+2018-09-25,267.84,268.47,0.0023521505376346043,maybe buy,adobe,ADBE,maybe buy,True
+2018-09-26,268.47,269.91,0.005363727790814607,maybe buy,adobe,ADBE,maybe buy,True
+2018-09-27,269.91,269.95,0.00014819754733045687,maybe buy,adobe,ADBE,maybe buy,True
+2018-09-28,269.95,269.95,0.0,maybe buy,adobe,ADBE,maybe buy,True
+2018-09-29,269.95,269.95,0.0,maybe buy,adobe,ADBE,maybe buy,True
+2018-09-30,269.95,275.49,0.0205223189479534,must buy,adobe,ADBE,maybe buy,False
+2018-10-01,275.49,272.0,-0.012668336418744815,don't buy,adobe,ADBE,maybe buy,False
+2018-10-02,272.0,250.35,-0.07959558823529414,definitely don't buy,adobe,ADBE,maybe buy,False
+2018-10-18,250.35,245.03,-0.02125024965048929,definitely don't buy,adobe,ADBE,maybe buy,False
+2018-10-19,245.03,245.03,0.0,maybe buy,adobe,ADBE,maybe buy,True
+2018-10-20,245.03,245.03,0.0,maybe buy,adobe,ADBE,maybe buy,True
+2018-10-21,245.03,251.06,0.024609231522670697,must buy,adobe,ADBE,maybe buy,False
+2018-10-22,251.06,251.76,0.0027881781247510104,maybe buy,adobe,ADBE,maybe buy,True
+2018-10-23,251.76,238.44,-0.05290753098188749,definitely don't buy,adobe,ADBE,maybe buy,False
+2018-10-24,238.44,252.92,0.06072806576077835,must buy,adobe,ADBE,maybe buy,False
+2018-10-25,252.92,245.8,-0.028151194053455546,definitely don't buy,adobe,ADBE,maybe buy,False
+2018-10-27,245.8,245.8,0.0,maybe buy,adobe,ADBE,maybe buy,True
+2018-10-28,245.8,239.75,-0.02461350691619207,definitely don't buy,adobe,ADBE,maybe buy,False
+2018-10-29,239.75,238.41,-0.005589155370177282,don't buy,adobe,ADBE,maybe buy,False
+2018-10-30,238.41,245.76,0.030829243739775993,must buy,adobe,ADBE,maybe buy,False
+2018-09-13,95.12,94.59,-0.005571909167367548,don't buy,walmart,WMT,maybe buy,False
+2018-09-14,94.59,94.59,0.0,maybe buy,walmart,WMT,maybe buy,True
+2018-09-15,94.59,94.59,0.0,maybe buy,walmart,WMT,maybe buy,True
+2018-09-16,94.59,94.82,0.002431546675124112,maybe buy,walmart,WMT,maybe buy,True
+2018-09-17,94.82,95.43,0.006433241932081984,maybe buy,walmart,WMT,maybe buy,True
+2018-09-18,95.43,95.24,-0.0019909881588600223,don't buy,walmart,WMT,don't buy,True
+2018-09-19,95.24,95.75,0.005354892902142011,maybe buy,walmart,WMT,maybe buy,True
+2018-09-20,95.75,95.9,0.0015665796344648112,maybe buy,walmart,WMT,don't buy,False
+2018-09-21,95.9,95.9,0.0,maybe buy,walmart,WMT,don't buy,False
+2018-09-22,95.9,95.9,0.0,maybe buy,walmart,WMT,maybe buy,True
+2018-09-23,95.9,94.92,-0.010218978102189823,don't buy,walmart,WMT,maybe buy,False
+2018-09-24,94.92,95.1,0.0018963337547407565,maybe buy,walmart,WMT,maybe buy,True
+2018-09-25,95.1,94.59,-0.0053627760252364974,don't buy,walmart,WMT,maybe buy,False
+2018-09-26,94.59,94.13,-0.004863093350248524,don't buy,walmart,WMT,maybe buy,False
+2018-09-27,94.13,93.91,-0.0023371932433867934,don't buy,walmart,WMT,maybe buy,False
+2018-09-28,93.91,93.91,0.0,maybe buy,walmart,WMT,maybe buy,True
+2018-09-29,93.91,93.91,0.0,maybe buy,walmart,WMT,maybe buy,True
+2018-09-30,93.91,94.4,0.005217761686721426,maybe buy,walmart,WMT,maybe buy,True
+2018-10-01,94.4,95.15,0.007944915254237288,maybe buy,walmart,WMT,don't buy,False
+2018-10-02,95.15,96.17,0.010719915922228018,maybe buy,walmart,WMT,don't buy,False
+2018-10-18,96.17,97.15,0.01019028803161073,maybe buy,walmart,WMT,don't buy,False
+2018-10-19,97.15,97.15,0.0,maybe buy,walmart,WMT,don't buy,False
+2018-10-20,97.15,97.15,0.0,maybe buy,walmart,WMT,don't buy,False
+2018-10-21,97.15,97.14,-0.00010293360782300685,don't buy,walmart,WMT,don't buy,True
+2018-10-22,97.14,97.8,0.006794317479925845,maybe buy,walmart,WMT,don't buy,False
+2018-10-23,97.8,97.56,-0.0024539877300612974,don't buy,walmart,WMT,don't buy,True
+2018-10-24,97.56,99.18,0.016605166051660562,maybe buy,walmart,WMT,don't buy,False
+2018-10-25,99.18,98.94,-0.002419842710223927,don't buy,walmart,WMT,don't buy,True
+2018-10-27,98.94,98.94,0.0,maybe buy,walmart,WMT,definitely don't buy,False
+2018-10-28,98.94,99.8,0.008692136648473818,maybe buy,walmart,WMT,definitely don't buy,False
+2018-10-29,99.8,102.42,0.026252505010020088,must buy,walmart,WMT,don't buy,False
+2018-10-30,102.42,100.28,-0.020894356570982237,definitely don't buy,walmart,WMT,don't buy,False
+2018-09-13,1989.87,1970.19,-0.009890093322679289,don't buy,amazon,AMZN,maybe buy,False
+2018-09-14,1970.19,1970.19,0.0,maybe buy,amazon,AMZN,maybe buy,True
+2018-09-15,1970.19,1970.19,0.0,maybe buy,amazon,AMZN,maybe buy,True
+2018-09-16,1970.19,1908.03,-0.03155025657423907,definitely don't buy,amazon,AMZN,must buy,False
+2018-09-17,1908.03,1941.05,0.017305807560677757,maybe buy,amazon,AMZN,don't buy,False
+2018-09-18,1941.05,1926.42,-0.007537157723912255,don't buy,amazon,AMZN,don't buy,True
+2018-09-19,1926.42,1944.3,0.009281465101068241,maybe buy,amazon,AMZN,maybe buy,True
+2018-09-20,1944.3,1915.01,-0.015064547652111281,don't buy,amazon,AMZN,don't buy,True
+2018-09-21,1915.01,1915.01,0.0,maybe buy,amazon,AMZN,don't buy,False
+2018-09-22,1915.01,1915.01,0.0,maybe buy,amazon,AMZN,maybe buy,True
+2018-09-23,1915.01,1934.36,0.010104385877880486,maybe buy,amazon,AMZN,don't buy,False
+2018-09-24,1934.36,1974.55,0.020776897785314035,must buy,amazon,AMZN,maybe buy,False
+2018-09-25,1974.55,1974.85,0.0001519333519029422,maybe buy,amazon,AMZN,don't buy,False
+2018-09-26,1974.85,2012.98,0.019307795528774395,maybe buy,amazon,AMZN,maybe buy,True
+2018-09-27,2012.98,2003.0,-0.004957823724031048,don't buy,amazon,AMZN,maybe buy,False
+2018-09-28,2003.0,2003.0,0.0,maybe buy,amazon,AMZN,maybe buy,True
+2018-09-29,2003.0,2003.0,0.0,maybe buy,amazon,AMZN,maybe buy,True
+2018-09-30,2003.0,2004.36,0.0006789815277083873,maybe buy,amazon,AMZN,maybe buy,True
+2018-10-01,2004.36,1971.31,-0.016489053862579553,don't buy,amazon,AMZN,maybe buy,False
+2018-10-02,1971.31,1770.72,-0.10175467075193649,definitely don't buy,amazon,AMZN,maybe buy,False
+2018-10-18,1770.72,1764.03,-0.003778124152886992,don't buy,amazon,AMZN,don't buy,True
+2018-10-19,1764.03,1764.03,0.0,maybe buy,amazon,AMZN,don't buy,False
+2018-10-20,1764.03,1764.03,0.0,maybe buy,amazon,AMZN,maybe buy,True
+2018-10-21,1764.03,1789.3,0.014325153200342387,maybe buy,amazon,AMZN,must buy,False
+2018-10-22,1789.3,1768.7,-0.011512882132677532,don't buy,amazon,AMZN,don't buy,True
+2018-10-23,1768.7,1664.2,-0.05908294227398654,definitely don't buy,amazon,AMZN,maybe buy,False
+2018-10-24,1664.2,1782.17,0.07088691263069344,must buy,amazon,AMZN,don't buy,False
+2018-10-25,1782.17,1642.81,-0.07819680501860099,definitely don't buy,amazon,AMZN,don't buy,False
+2018-10-27,1642.81,1642.81,0.0,maybe buy,amazon,AMZN,maybe buy,True
+2018-10-28,1642.81,1538.88,-0.06326355451939046,definitely don't buy,amazon,AMZN,don't buy,False
+2018-10-29,1538.88,1530.42,-0.00549750467872741,don't buy,amazon,AMZN,don't buy,True
+2018-10-30,1530.42,1598.01,0.04416434704198842,must buy,amazon,AMZN,don't buy,False
+2018-09-13,3178.0,3217.0,0.012271869100062933,maybe buy,honda,HMC,maybe buy,True
+2018-09-14,3217.0,3217.0,0.0,maybe buy,honda,HMC,maybe buy,True
+2018-09-15,3217.0,3217.0,0.0,maybe buy,honda,HMC,maybe buy,True
+2018-09-16,3217.0,3217.0,0.0,maybe buy,honda,HMC,maybe buy,True
+2018-09-17,3217.0,3284.0,0.020826857320484924,must buy,honda,HMC,don't buy,False
+2018-09-18,3284.0,3383.0,0.030146163215590743,must buy,honda,HMC,maybe buy,False
+2018-09-19,3383.0,3418.0,0.010345846881466154,maybe buy,honda,HMC,maybe buy,True
+2018-09-20,3418.0,3491.0,0.021357519016968987,must buy,honda,HMC,maybe buy,False
+2018-09-21,3491.0,3491.0,0.0,maybe buy,honda,HMC,maybe buy,True
+2018-09-22,3491.0,3491.0,0.0,maybe buy,honda,HMC,maybe buy,True
+2018-09-23,3491.0,3491.0,0.0,maybe buy,honda,HMC,maybe buy,True
+2018-09-24,3491.0,3516.0,0.007161271841879118,maybe buy,honda,HMC,don't buy,False
+2018-09-25,3516.0,3427.0,-0.025312855517633674,definitely don't buy,honda,HMC,definitely don't buy,True
+2018-09-26,3427.0,3407.0,-0.005836008170411439,don't buy,honda,HMC,maybe buy,False
+2018-09-27,3407.0,3439.0,0.009392427355444672,maybe buy,honda,HMC,maybe buy,True
+2018-09-28,3439.0,3439.0,0.0,maybe buy,honda,HMC,maybe buy,True
+2018-09-29,3439.0,3439.0,0.0,maybe buy,honda,HMC,don't buy,False
+2018-09-30,3439.0,3434.0,-0.0014539110206455365,don't buy,honda,HMC,don't buy,True
+2018-10-01,3434.0,3486.0,0.015142690739662202,maybe buy,honda,HMC,maybe buy,True
+2018-10-02,3486.0,3094.0,-0.11244979919678715,definitely don't buy,honda,HMC,maybe buy,False
+2018-10-18,3094.0,3065.0,-0.009372979961215255,don't buy,honda,HMC,maybe buy,False
+2018-10-19,3065.0,3065.0,0.0,maybe buy,honda,HMC,don't buy,False
+2018-10-20,3065.0,3065.0,0.0,maybe buy,honda,HMC,don't buy,False
+2018-10-21,3065.0,3078.0,0.004241435562805873,maybe buy,honda,HMC,don't buy,False
+2018-10-22,3078.0,3011.0,-0.021767381416504222,definitely don't buy,honda,HMC,don't buy,False
+2018-10-23,3011.0,3019.0,0.002656924609764198,maybe buy,honda,HMC,don't buy,False
+2018-10-24,3019.0,2926.5,-0.030639284531301755,definitely don't buy,honda,HMC,maybe buy,False
+2018-10-25,2926.5,2977.5,0.01742696053305997,maybe buy,honda,HMC,don't buy,False
+2018-10-27,2977.5,2977.5,0.0,maybe buy,honda,HMC,don't buy,False
+2018-10-28,2977.5,2985.0,0.0025188916876574307,maybe buy,honda,HMC,don't buy,False
+2018-10-29,2985.0,3044.0,0.019765494137353432,maybe buy,honda,HMC,don't buy,False
+2018-10-30,3044.0,3241.0,0.06471747700394218,must buy,honda,HMC,maybe buy,False
+2018-09-13,226.41,223.84,-0.011351088732829792,don't buy,apple,AAPL,must buy,False
+2018-09-14,223.84,223.84,0.0,maybe buy,apple,AAPL,don't buy,False
+2018-09-15,223.84,223.84,0.0,maybe buy,apple,AAPL,maybe buy,True
+2018-09-16,223.84,217.88,-0.026626161543960008,definitely don't buy,apple,AAPL,don't buy,False
+2018-09-17,217.88,218.24,0.0016522856618322638,maybe buy,apple,AAPL,must buy,False
+2018-09-18,218.24,218.37,0.0005956744868034981,maybe buy,apple,AAPL,maybe buy,True
+2018-09-19,218.37,220.03,0.007601776800842591,maybe buy,apple,AAPL,maybe buy,True
+2018-09-20,220.03,217.66,-0.010771258464754827,don't buy,apple,AAPL,don't buy,True
+2018-09-21,217.66,217.66,0.0,maybe buy,apple,AAPL,must buy,False
+2018-09-22,217.66,217.66,0.0,maybe buy,apple,AAPL,must buy,False
+2018-09-23,217.66,220.79,0.01438022604061378,maybe buy,apple,AAPL,must buy,False
+2018-09-24,220.79,222.19,0.0063408668870873035,maybe buy,apple,AAPL,don't buy,False
+2018-09-25,222.19,220.42,-0.007966155092488457,don't buy,apple,AAPL,don't buy,True
+2018-09-26,220.42,224.95,0.02055167407676255,must buy,apple,AAPL,maybe buy,False
+2018-09-27,224.95,225.74,0.0035118915314515248,maybe buy,apple,AAPL,maybe buy,True
+2018-09-28,225.74,225.74,0.0,maybe buy,apple,AAPL,maybe buy,True
+2018-09-29,225.74,225.74,0.0,maybe buy,apple,AAPL,don't buy,False
+2018-09-30,225.74,227.26,0.006733410117834596,maybe buy,apple,AAPL,don't buy,False
+2018-10-01,227.26,229.28,0.008888497755874374,maybe buy,apple,AAPL,don't buy,False
+2018-10-02,229.28,216.02,-0.05783321702721559,definitely don't buy,apple,AAPL,don't buy,False
+2018-10-18,216.02,219.31,0.015230071289695361,maybe buy,apple,AAPL,maybe buy,True
+2018-10-19,219.31,219.31,0.0,maybe buy,apple,AAPL,don't buy,False
+2018-10-20,219.31,219.31,0.0,maybe buy,apple,AAPL,don't buy,False
+2018-10-21,219.31,220.65,0.0061100725001140095,maybe buy,apple,AAPL,don't buy,False
+2018-10-22,220.65,222.73,0.009426693859052726,maybe buy,apple,AAPL,don't buy,False
+2018-10-23,222.73,215.09,-0.034301620796479984,definitely don't buy,apple,AAPL,don't buy,False
+2018-10-24,215.09,219.8,0.021897810218978138,must buy,apple,AAPL,must buy,True
+2018-10-25,219.8,216.3,-0.01592356687898089,don't buy,apple,AAPL,don't buy,True
+2018-10-27,216.3,216.3,0.0,maybe buy,apple,AAPL,must buy,False
+2018-10-28,216.3,212.24,-0.018770226537216838,don't buy,apple,AAPL,must buy,False
+2018-10-29,212.24,213.3,0.00499434602336978,maybe buy,apple,AAPL,must buy,False
+2018-10-30,213.3,218.86,0.026066572902015948,must buy,apple,AAPL,maybe buy,False
+2018-09-13,210.1,210.4,0.0014278914802475554,maybe buy,adidas,ADS.DE,don't buy,False
+2018-09-14,210.4,210.4,0.0,maybe buy,adidas,ADS.DE,don't buy,False
+2018-09-15,210.4,210.4,0.0,maybe buy,adidas,ADS.DE,maybe buy,True
+2018-09-16,210.4,206.9,-0.016634980988593156,don't buy,adidas,ADS.DE,maybe buy,False
+2018-09-17,206.9,210.0,0.01498308361527305,maybe buy,adidas,ADS.DE,maybe buy,True
+2018-09-18,210.0,209.2,-0.0038095238095238637,don't buy,adidas,ADS.DE,maybe buy,False
+2018-09-19,209.2,209.7,0.002390057361376673,maybe buy,adidas,ADS.DE,maybe buy,True
+2018-09-20,209.7,210.6,0.0042918454935622595,maybe buy,adidas,ADS.DE,maybe buy,True
+2018-09-21,210.6,210.6,0.0,maybe buy,adidas,ADS.DE,don't buy,False
+2018-09-22,210.6,210.6,0.0,maybe buy,adidas,ADS.DE,maybe buy,True
+2018-09-23,210.6,208.4,-0.01044634377967706,don't buy,adidas,ADS.DE,maybe buy,False
+2018-09-24,208.4,210.8,0.01151631477927066,maybe buy,adidas,ADS.DE,maybe buy,True
+2018-09-25,210.8,208.4,-0.011385199240986743,don't buy,adidas,ADS.DE,maybe buy,False
+2018-09-26,208.4,211.0,0.012476007677543158,maybe buy,adidas,ADS.DE,maybe buy,True
+2018-09-27,211.0,210.0,-0.004739336492890996,don't buy,adidas,ADS.DE,maybe buy,False
+2018-09-28,210.0,210.0,0.0,maybe buy,adidas,ADS.DE,maybe buy,True
+2018-09-29,210.0,210.0,0.0,maybe buy,adidas,ADS.DE,maybe buy,True
+2018-09-30,210.0,213.2,0.015238095238095184,maybe buy,adidas,ADS.DE,maybe buy,True
+2018-10-01,213.2,213.1,-0.0004690431519699546,don't buy,adidas,ADS.DE,maybe buy,False
+2018-10-02,213.1,197.85,-0.07156264664476772,definitely don't buy,adidas,ADS.DE,maybe buy,False
+2018-10-18,197.85,203.0,0.026029820571139783,must buy,adidas,ADS.DE,don't buy,False
+2018-10-19,203.0,203.0,0.0,maybe buy,adidas,ADS.DE,don't buy,False
+2018-10-20,203.0,203.0,0.0,maybe buy,adidas,ADS.DE,maybe buy,True
+2018-10-21,203.0,200.8,-0.010837438423645264,don't buy,adidas,ADS.DE,maybe buy,False
+2018-10-22,200.8,199.4,-0.006972111553784888,don't buy,adidas,ADS.DE,maybe buy,False
+2018-10-23,199.4,199.15,-0.0012537612838515546,don't buy,adidas,ADS.DE,maybe buy,False
+2018-10-24,199.15,207.1,0.03991965854883248,must buy,adidas,ADS.DE,maybe buy,False
+2018-10-25,207.1,203.4,-0.017865765330758034,don't buy,adidas,ADS.DE,maybe buy,False
+2018-10-27,203.4,203.4,0.0,maybe buy,adidas,ADS.DE,don't buy,False
+2018-10-28,203.4,204.4,0.004916420845624385,maybe buy,adidas,ADS.DE,maybe buy,True
+2018-10-29,204.4,203.8,-0.002935420743639894,don't buy,adidas,ADS.DE,maybe buy,False
+2018-10-30,203.8,207.5,0.018155053974484733,maybe buy,adidas,ADS.DE,maybe buy,True
+2018-09-13,54.94,54.55,-0.0070986530760830105,don't buy,verizon,VZ,don't buy,True
+2018-09-14,54.55,54.55,0.0,maybe buy,verizon,VZ,maybe buy,True
+2018-09-15,54.55,54.55,0.0,maybe buy,verizon,VZ,maybe buy,True
+2018-09-16,54.55,54.7,0.0027497708524290686,maybe buy,verizon,VZ,maybe buy,True
+2018-09-17,54.7,54.39,-0.0056672760511883415,don't buy,verizon,VZ,maybe buy,False
+2018-09-18,54.39,53.5,-0.0163633020775878,don't buy,verizon,VZ,maybe buy,False
+2018-09-19,53.5,53.95,0.00841121495327108,maybe buy,verizon,VZ,maybe buy,True
+2018-09-20,53.95,54.42,0.008711770157553268,maybe buy,verizon,VZ,maybe buy,True
+2018-09-21,54.42,54.42,0.0,maybe buy,verizon,VZ,don't buy,False
+2018-09-22,54.42,54.42,0.0,maybe buy,verizon,VZ,maybe buy,True
+2018-09-23,54.42,53.54,-0.016170525542080164,don't buy,verizon,VZ,maybe buy,False
+2018-09-24,53.54,53.05,-0.009152035861038512,don't buy,verizon,VZ,maybe buy,False
+2018-09-25,53.05,53.14,0.0016965127238454932,maybe buy,verizon,VZ,maybe buy,True
+2018-09-26,53.14,53.59,0.00846819721490408,maybe buy,verizon,VZ,maybe buy,True
+2018-09-27,53.59,53.39,-0.0037320395596193846,don't buy,verizon,VZ,maybe buy,False
+2018-09-28,53.39,53.39,0.0,maybe buy,verizon,VZ,maybe buy,True
+2018-09-29,53.39,53.39,0.0,maybe buy,verizon,VZ,maybe buy,True
+2018-09-30,53.39,53.84,0.00842854467128681,maybe buy,verizon,VZ,maybe buy,True
+2018-10-01,53.84,54.42,0.010772659732540829,maybe buy,verizon,VZ,maybe buy,True
+2018-10-02,54.42,54.65,0.004226387357589064,maybe buy,verizon,VZ,maybe buy,True
+2018-10-18,54.65,54.9,0.004574565416285453,maybe buy,verizon,VZ,maybe buy,True
+2018-10-19,54.9,54.9,0.0,maybe buy,verizon,VZ,don't buy,False
+2018-10-20,54.9,54.9,0.0,maybe buy,verizon,VZ,don't buy,False
+2018-10-21,54.9,54.98,0.0014571948998178196,maybe buy,verizon,VZ,don't buy,False
+2018-10-22,54.98,57.21,0.04056020371044024,must buy,verizon,VZ,don't buy,False
+2018-10-23,57.21,57.42,0.0036706869428421753,maybe buy,verizon,VZ,maybe buy,True
+2018-10-24,57.42,56.43,-0.017241379310344862,don't buy,verizon,VZ,don't buy,True
+2018-10-25,56.43,55.51,-0.016303384724437386,don't buy,verizon,VZ,don't buy,True
+2018-10-27,55.51,55.51,0.0,maybe buy,verizon,VZ,don't buy,False
+2018-10-28,55.51,56.48,0.017474328949738768,maybe buy,verizon,VZ,don't buy,False
+2018-10-29,56.48,58.18,0.030099150141643112,must buy,verizon,VZ,maybe buy,False
+2018-10-30,58.18,57.09,-0.018734960467514546,don't buy,verizon,VZ,maybe buy,False
+2018-09-13,45.57,45.54,-0.0006583278472679643,don't buy,intel,INTC,maybe buy,False
+2018-09-14,45.54,45.54,0.0,maybe buy,intel,INTC,maybe buy,True
+2018-09-15,45.54,45.54,0.0,maybe buy,intel,INTC,maybe buy,True
+2018-09-16,45.54,45.42,-0.0026350461133069266,don't buy,intel,INTC,maybe buy,False
+2018-09-17,45.42,46.1,0.014971378247468069,maybe buy,intel,INTC,maybe buy,True
+2018-09-18,46.1,46.15,0.0010845986984815,maybe buy,intel,INTC,maybe buy,True
+2018-09-19,46.15,47.2,0.022751895991332705,must buy,intel,INTC,maybe buy,False
+2018-09-20,47.2,46.66,-0.011440677966101827,don't buy,intel,INTC,maybe buy,False
+2018-09-21,46.66,46.66,0.0,maybe buy,intel,INTC,maybe buy,True
+2018-09-22,46.66,46.66,0.0,maybe buy,intel,INTC,maybe buy,True
+2018-09-23,46.66,46.91,0.005357908272610373,maybe buy,intel,INTC,maybe buy,True
+2018-09-24,46.91,45.91,-0.02131741632914091,definitely don't buy,intel,INTC,maybe buy,False
+2018-09-25,45.91,45.7,-0.004574166848181088,don't buy,intel,INTC,maybe buy,False
+2018-09-26,45.7,45.88,0.003938730853391678,maybe buy,intel,INTC,maybe buy,True
+2018-09-27,45.88,47.29,0.030732345248474204,must buy,intel,INTC,maybe buy,False
+2018-09-28,47.29,47.29,0.0,maybe buy,intel,INTC,maybe buy,True
+2018-09-29,47.29,47.29,0.0,maybe buy,intel,INTC,maybe buy,True
+2018-09-30,47.29,46.45,-0.01776274053711136,don't buy,intel,INTC,maybe buy,False
+2018-10-01,46.45,48.1,0.035522066738428386,must buy,intel,INTC,maybe buy,False
+2018-10-02,48.1,44.97,-0.06507276507276512,definitely don't buy,intel,INTC,maybe buy,False
+2018-10-18,44.97,44.0,-0.021569935512563906,definitely don't buy,intel,INTC,maybe buy,False
+2018-10-19,44.0,44.0,0.0,maybe buy,intel,INTC,maybe buy,True
+2018-10-20,44.0,44.0,0.0,maybe buy,intel,INTC,maybe buy,True
+2018-10-21,44.0,45.01,0.022954545454545408,must buy,intel,INTC,maybe buy,False
+2018-10-22,45.01,44.5,-0.01133081537436121,don't buy,intel,INTC,maybe buy,False
+2018-10-23,44.5,42.42,-0.04674157303370783,definitely don't buy,intel,INTC,maybe buy,False
+2018-10-24,42.42,44.31,0.044554455445544566,must buy,intel,INTC,maybe buy,False
+2018-10-25,44.31,45.69,0.031144211238997865,must buy,intel,INTC,maybe buy,False
+2018-10-27,45.69,45.69,0.0,maybe buy,intel,INTC,maybe buy,True
+2018-10-28,45.69,45.4,-0.006347121908513879,don't buy,intel,INTC,maybe buy,False
+2018-10-29,45.4,47.76,0.05198237885462554,must buy,intel,INTC,maybe buy,False
+2018-10-30,47.76,46.88,-0.018425460636515817,don't buy,intel,INTC,maybe buy,False
+2018-09-13,6783.0,6848.0,0.009582780480613298,maybe buy,toyota,TM,maybe buy,True
+2018-09-14,6848.0,6848.0,0.0,maybe buy,toyota,TM,maybe buy,True
+2018-09-15,6848.0,6848.0,0.0,maybe buy,toyota,TM,maybe buy,True
+2018-09-16,6848.0,6848.0,0.0,maybe buy,toyota,TM,maybe buy,True
+2018-09-17,6848.0,6960.0,0.016355140186915886,maybe buy,toyota,TM,maybe buy,True
+2018-09-18,6960.0,7019.0,0.008477011494252874,maybe buy,toyota,TM,maybe buy,True
+2018-09-19,7019.0,6979.0,-0.005698817495369711,don't buy,toyota,TM,maybe buy,False
+2018-09-20,6979.0,7000.0,0.003009027081243731,maybe buy,toyota,TM,maybe buy,True
+2018-09-21,7000.0,7000.0,0.0,maybe buy,toyota,TM,maybe buy,True
+2018-09-22,7000.0,7000.0,0.0,maybe buy,toyota,TM,maybe buy,True
+2018-09-23,7000.0,7000.0,0.0,maybe buy,toyota,TM,maybe buy,True
+2018-09-24,7000.0,7122.0,0.01742857142857143,maybe buy,toyota,TM,maybe buy,True
+2018-09-25,7122.0,7030.0,-0.012917719741645605,don't buy,toyota,TM,maybe buy,False
+2018-09-26,7030.0,7008.0,-0.0031294452347083927,don't buy,toyota,TM,maybe buy,False
+2018-09-27,7008.0,7095.0,0.012414383561643835,maybe buy,toyota,TM,don't buy,False
+2018-09-28,7095.0,7095.0,0.0,maybe buy,toyota,TM,maybe buy,True
+2018-09-29,7095.0,7095.0,0.0,maybe buy,toyota,TM,maybe buy,True
+2018-09-30,7095.0,7060.0,-0.004933051444679351,don't buy,toyota,TM,maybe buy,False
+2018-10-01,7060.0,7175.0,0.016288951841359773,maybe buy,toyota,TM,maybe buy,True
+2018-10-02,7175.0,6641.0,-0.07442508710801393,definitely don't buy,toyota,TM,maybe buy,False
+2018-10-18,6641.0,6577.0,-0.009637102845956935,don't buy,toyota,TM,don't buy,True
+2018-10-19,6577.0,6577.0,0.0,maybe buy,toyota,TM,don't buy,False
+2018-10-20,6577.0,6577.0,0.0,maybe buy,toyota,TM,don't buy,False
+2018-10-21,6577.0,6549.0,-0.004257260149004106,don't buy,toyota,TM,don't buy,True
+2018-10-22,6549.0,6544.0,-0.0007634753397465262,don't buy,toyota,TM,don't buy,True
+2018-10-23,6544.0,6578.0,0.00519559902200489,maybe buy,toyota,TM,maybe buy,True
+2018-10-24,6578.0,6402.0,-0.026755852842809364,definitely don't buy,toyota,TM,don't buy,False
+2018-10-25,6402.0,6534.0,0.020618556701030927,must buy,toyota,TM,maybe buy,False
+2018-10-27,6534.0,6534.0,0.0,maybe buy,toyota,TM,maybe buy,True
+2018-10-28,6534.0,6426.0,-0.01652892561983471,don't buy,toyota,TM,maybe buy,False
+2018-10-29,6426.0,6485.0,0.009181450357920945,maybe buy,toyota,TM,don't buy,False
+2018-10-30,6485.0,6615.0,0.020046260601387818,must buy,toyota,TM,don't buy,False
+2018-09-13,1182.14,1177.98,-0.0035190417378652963,don't buy,google,GOOGL,don't buy,True
+2018-09-14,1177.98,1177.98,0.0,maybe buy,google,GOOGL,maybe buy,True
+2018-09-15,1177.98,1177.98,0.0,maybe buy,google,GOOGL,maybe buy,True
+2018-09-16,1177.98,1159.83,-0.015407731879998039,don't buy,google,GOOGL,maybe buy,False
+2018-09-17,1159.83,1167.11,0.006276781942181159,maybe buy,google,GOOGL,maybe buy,True
+2018-09-18,1167.11,1174.27,0.0061348116287240125,maybe buy,google,GOOGL,maybe buy,True
+2018-09-19,1174.27,1191.57,0.014732557248332969,maybe buy,google,GOOGL,don't buy,False
+2018-09-20,1191.57,1172.12,-0.01632300242537161,don't buy,google,GOOGL,maybe buy,False
+2018-09-21,1172.12,1172.12,0.0,maybe buy,google,GOOGL,don't buy,False
+2018-09-22,1172.12,1172.12,0.0,maybe buy,google,GOOGL,maybe buy,True
+2018-09-23,1172.12,1179.56,0.0063474729549875914,maybe buy,google,GOOGL,don't buy,False
+2018-09-24,1179.56,1193.89,0.012148597782224012,maybe buy,google,GOOGL,don't buy,False
+2018-09-25,1193.89,1194.06,0.00014239167762511234,maybe buy,google,GOOGL,don't buy,False
+2018-09-26,1194.06,1207.36,0.011138468753663932,maybe buy,google,GOOGL,maybe buy,True
+2018-09-27,1207.36,1207.08,-0.0002319109461966379,don't buy,google,GOOGL,maybe buy,False
+2018-09-28,1207.08,1207.08,0.0,maybe buy,google,GOOGL,maybe buy,True
+2018-09-29,1207.08,1207.08,0.0,maybe buy,google,GOOGL,maybe buy,True
+2018-09-30,1207.08,1208.53,0.0012012459820393393,maybe buy,google,GOOGL,don't buy,False
+2018-10-01,1208.53,1207.64,-0.0007364318635034899,don't buy,google,GOOGL,maybe buy,False
+2018-10-02,1207.64,1097.91,-0.09086317114371834,definitely don't buy,google,GOOGL,maybe buy,False
+2018-10-18,1097.91,1105.18,0.006621672086054396,maybe buy,google,GOOGL,don't buy,False
+2018-10-19,1105.18,1105.18,0.0,maybe buy,google,GOOGL,maybe buy,True
+2018-10-20,1105.18,1105.18,0.0,maybe buy,google,GOOGL,maybe buy,True
+2018-10-21,1105.18,1111.37,0.00560089759134243,maybe buy,google,GOOGL,don't buy,False
+2018-10-22,1111.37,1114.91,0.0031852578349246346,maybe buy,google,GOOGL,maybe buy,True
+2018-10-23,1114.91,1057.12,-0.051833780305136905,definitely don't buy,google,GOOGL,maybe buy,False
+2018-10-24,1057.12,1103.59,0.04395905857423947,must buy,google,GOOGL,don't buy,False
+2018-10-25,1103.59,1083.75,-0.01797769099031336,don't buy,google,GOOGL,maybe buy,False
+2018-10-27,1083.75,1083.75,0.0,maybe buy,google,GOOGL,maybe buy,True
+2018-10-28,1083.75,1034.73,-0.04523183391003459,definitely don't buy,google,GOOGL,don't buy,False
+2018-10-29,1034.73,1049.51,0.014283919476578404,maybe buy,google,GOOGL,maybe buy,True
+2018-10-30,1049.51,1090.58,0.03913254756981824,must buy,google,GOOGL,maybe buy,False

@@ -2,11 +2,12 @@ import { type KeyboardEvent, useRef, useState } from "react";
 
 interface Props {
   onSend: (text: string) => void;
+  options?: string[];
   disabled?: boolean;
 }
 
 /** Text input + send button at the bottom of the chat. */
-export function ChatInput({ onSend, disabled = false }: Props) {
+export function ChatInput({ onSend, options = [], disabled = false }: Props) {
   const [text, setText] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -26,32 +27,50 @@ export function ChatInput({ onSend, disabled = false }: Props) {
   };
 
   return (
-    <div className="flex items-end gap-2 p-3 border-t border-slate-700/50 bg-slate-800/50">
-      <textarea
-        ref={textareaRef}
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        onKeyDown={handleKeyDown}
-        disabled={disabled}
-        rows={1}
-        placeholder="Type your answer..."
-        className="flex-1 resize-none rounded-xl bg-slate-700/60 border border-slate-600/50
-          text-slate-100 placeholder-slate-500 text-sm px-4 py-2.5
-          focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50
-          disabled:opacity-50 disabled:cursor-not-allowed transition-all
-          max-h-32 overflow-y-auto"
-        style={{ minHeight: "42px" }}
-      />
-      <button
-        onClick={handleSend}
-        disabled={disabled || !text.trim()}
-        className="w-10 h-10 rounded-xl bg-indigo-600 hover:bg-indigo-500
-          disabled:opacity-40 disabled:cursor-not-allowed
-          flex items-center justify-center transition-all active:scale-95 shrink-0"
-        title="Send (Enter)"
-      >
-        <SendIcon />
-      </button>
+    <div className="p-3 border-t border-slate-700/50 bg-slate-800/50">
+      {options.length > 0 && (
+        <div className="mb-2 flex flex-wrap gap-2">
+          {options.map((opt) => (
+            <button
+              key={opt}
+              type="button"
+              disabled={disabled}
+              onClick={() => onSend(opt)}
+              className="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-700/70 border border-slate-600/40 text-slate-200 hover:bg-slate-700 disabled:opacity-40"
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <div className="flex items-end gap-2">
+        <textarea
+          ref={textareaRef}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          onKeyDown={handleKeyDown}
+          disabled={disabled}
+          rows={1}
+          placeholder="Type your answer..."
+          className="flex-1 resize-none rounded-xl bg-slate-700/60 border border-slate-600/50
+            text-slate-100 placeholder-slate-500 text-sm px-4 py-2.5
+            focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50
+            disabled:opacity-50 disabled:cursor-not-allowed transition-all
+            max-h-32 overflow-y-auto"
+          style={{ minHeight: "42px" }}
+        />
+        <button
+          onClick={handleSend}
+          disabled={disabled || !text.trim()}
+          className="w-10 h-10 rounded-xl bg-indigo-600 hover:bg-indigo-500
+            disabled:opacity-40 disabled:cursor-not-allowed
+            flex items-center justify-center transition-all active:scale-95 shrink-0"
+          title="Send (Enter)"
+        >
+          <SendIcon />
+        </button>
+      </div>
     </div>
   );
 }

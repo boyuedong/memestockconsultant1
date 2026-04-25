@@ -4,11 +4,13 @@ Stateless conversation step manager.
 All session state is kept in the caller (the route handler) and passed in.
 This makes the logic easy to test and easy to swap backends.
 
-Conversation steps (in order):
+Structured conversation steps (max 6 questions):
   1. time_horizon
   2. risk_tolerance
   3. objective
-  4. sector_preferences   (optional — skipped if user says no preference)
+  4. preference
+  5. loss_comfort
+  6. diversification
   → complete
 """
 
@@ -17,31 +19,73 @@ from .profile_extractor import (
     extract_time_horizon,
     extract_risk_tolerance,
     extract_objective,
-    extract_priority,
-    extract_sectors,
+    extract_preference,
+    extract_loss_comfort,
+    extract_diversification,
 )
-from .llm_service import generate_reply
 
 # ---------------------------------------------------------------------------
 # Step definitions
 # ---------------------------------------------------------------------------
 
-REQUIRED_FIELDS = ["time_horizon", "risk_tolerance", "objective"]
-OPTIONAL_FIELDS = ["sector_preferences", "priority"]
+MAX_QUESTIONS = 6
+REQUIRED_FIELDS = [
+    "time_horizon",
+    "risk_tolerance",
+    "objective",
+    "preference",
+    "loss_comfort",
+    "diversification",
+]
 WELCOME_MESSAGE = (
-    "Hi! I can help recommend whether social buzz stocks or the Magnificent 7 "
-    "better fit your goals.\n\n"
-    "First, what's your investment time horizon? "
-    "For example: 1 month, 3 months, 6 months, or 1 year?"
+    "Hi! I can give an educational, model-based suggestion between meme/social-buzz stocks, "
+    "standard ETF-style options (SPY/QQQ), or a mixed allocation.\n\n"
+    "Q1/6: Choose your investment horizon."
 )
 
-_STEP_ORDER = ["time_horizon", "risk_tolerance", "objective", "sector_preferences"]
+_STEP_ORDER = [
+    "time_horizon",
+    "risk_tolerance",
+    "objective",
+    "preference",
+    "loss_comfort",
+    "diversification",
+]
 
 _EXTRACTORS = {
     "time_horizon": extract_time_horizon,
     "risk_tolerance": extract_risk_tolerance,
     "objective": extract_objective,
-    "sector_preferences": extract_sectors,
+    "preference": extract_preference,
+    "loss_comfort": extract_loss_comfort,
+    "diversification": extract_diversification,
+}
+
+_STEP_PROMPTS = {
+    "time_horizon": "Q1/6: What is your investment horizon?",
+    "risk_tolerance": "Q2/6: What is your risk tolerance?",
+    "objective": "Q3/6: What is your main goal?",
+    "preference": "Q4/6: Which style do you prefer?",
+    "loss_comfort": "Q5/6: How much downside can you tolerate?",
+    "diversification": "Q6/6: What diversification style fits you best?",
+}
+
+_STEP_OPTIONS = {
+    "time_horizon": ["1 week", "1 month", "3 months", "6+ months"],
+    "risk_tolerance": ["Low", "Medium", "High"],
+    "objective": [
+        "Stable growth",
+        "High upside",
+        "Short-term trend",
+        "Learning/experimenting",
+    ],
+    "preference": ["Meme/social buzz", "Standard ETF", "No preference"],
+    "loss_comfort": [
+        "Can tolerate small losses",
+        "Can tolerate large swings",
+        "Prefer safer choice",
+    ],
+    "diversification": ["Single trend pick", "Basket", "ETF-heavy"],
 }
 
 
@@ -50,9 +94,11 @@ def empty_profile() -> dict:
         "time_horizon": None,
         "risk_tolerance": None,
         "objective": None,
-        "sector_preferences": [],
-        "priority": None,
+        "preference": None,
+        "loss_comfort": None,
+        "diversification": None,
         "extra_notes": "",
+        "question_count": 0,
     }
 
 
@@ -67,11 +113,6 @@ def _is_complete(profile: dict) -> bool:
 def _next_unfilled_step(profile: dict) -> Optional[str]:
     """Return the next step that still needs answering, or None if done."""
     for step in _STEP_ORDER:
-        if step == "sector_preferences":
-            # Optional — only ask if not already answered
-            if profile.get("sector_preferences") is None:
-                return step
-            continue
         if not profile.get(step):
             return step
     return None
@@ -95,97 +136,64 @@ def process_message(
         "reply": str,
         "profile": dict,
         "current_step": str,
+        "options": list[str],
+        "question_count": int,
+        "total_questions": int,
         "is_complete": bool,
         "missing_fields": list[str],
       }
     """
     updated_profile = dict(profile)
+    question_count = int(updated_profile.get("question_count", 0))
 
     # ── 1. Try to extract a value for the current step ────────────────────────
     extractor = _EXTRACTORS.get(current_step)
     extracted_value = extractor(user_text) if extractor else None
 
-    # Also opportunistically extract other fields from the message
-    _opportunistic_extract(user_text, updated_profile)
-
     step_filled = False
     if extracted_value is not None:
-        if current_step == "sector_preferences":
-            updated_profile["sector_preferences"] = extracted_value  # may be []
-        else:
-            updated_profile[current_step] = extracted_value
-        step_filled = True
-    elif current_step == "sector_preferences":
-        # Treat any reply as "handled" — it's optional
-        updated_profile["sector_preferences"] = []
+        updated_profile[current_step] = extracted_value
         step_filled = True
 
-    # ── 2. Derive priority from objective if not already set ──────────────────
-    _derive_priority(updated_profile)
+    if step_filled:
+        question_count += 1
 
-    # ── 3. Determine next step ────────────────────────────────────────────────
-    is_complete = _is_complete(updated_profile)
+    # ── 2. Determine completion (hard cap at 6 answered questions) ───────────
+    is_complete = question_count >= MAX_QUESTIONS or _is_complete(updated_profile)
     next_step = _next_unfilled_step(updated_profile) if not is_complete else None
-    clarifying = not step_filled and not is_complete
 
-    # ── 4. Build history for LLM ──────────────────────────────────────────────
-    updated_history = list(history) + [{"role": "user", "content": user_text}]
-
-    # ── 5. Generate assistant reply ───────────────────────────────────────────
-    reply = generate_reply(
-        step_just_completed=current_step if step_filled else None,
-        next_step=next_step,
-        profile=updated_profile,
-        clarifying=clarifying,
-        conversation_history=updated_history,
-    )
-
-    # Advance step only when current is filled
-    new_step = next_step if step_filled else current_step
+    # ── 3. Build reply (structured only, no open-ended stock-picking prompts) ─
     if is_complete:
+        reply = (
+            "Thanks — profile complete. I will now generate a model-based educational recommendation "
+            "between meme/social-buzz picks, standard SPY/QQQ-style options, or a mixed allocation."
+        )
+        options: list[str] = []
         new_step = "complete"
+    else:
+        if not step_filled:
+            # Remind user with explicit choices to prevent infinite clarifying loops.
+            prompt = _STEP_PROMPTS.get(current_step, "Please choose one option:")
+            opts = _STEP_OPTIONS.get(current_step, [])
+            reply = f"{prompt} Please choose one of: {', '.join(opts)}."
+            options = opts
+            new_step = current_step
+        else:
+            prompt = _STEP_PROMPTS.get(next_step or "", "Next question:")
+            opts = _STEP_OPTIONS.get(next_step or "", [])
+            reply = f"{prompt} Options: {', '.join(opts)}."
+            options = opts
+            new_step = next_step or "complete"
+
+    updated_profile["question_count"] = question_count
 
     return {
         "reply": reply,
         "profile": updated_profile,
         "current_step": new_step or "complete",
+        "options": options,
+        "question_count": question_count,
+        "total_questions": MAX_QUESTIONS,
         "is_complete": is_complete,
         "missing_fields": _missing_required(updated_profile),
     }
-
-
-# ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
-
-def _opportunistic_extract(text: str, profile: dict) -> None:
-    """Try to fill any empty field from a free-form message."""
-    if not profile.get("time_horizon"):
-        v = extract_time_horizon(text)
-        if v:
-            profile["time_horizon"] = v
-    if not profile.get("risk_tolerance"):
-        v = extract_risk_tolerance(text)
-        if v:
-            profile["risk_tolerance"] = v
-    if not profile.get("objective"):
-        v = extract_objective(text)
-        if v:
-            profile["objective"] = v
-    if not profile.get("priority"):
-        v = extract_priority(text)
-        if v:
-            profile["priority"] = v
-
-
-_OBJECTIVE_TO_PRIORITY = {
-    "growth": "max_return",
-    "stability": "lower_volatility",
-    "balanced": "balanced_growth",
-    "income": "lower_volatility",
-}
-
-
-def _derive_priority(profile: dict) -> None:
-    if not profile.get("priority") and profile.get("objective"):
-        profile["priority"] = _OBJECTIVE_TO_PRIORITY.get(profile["objective"])
