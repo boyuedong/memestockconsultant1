@@ -1,6 +1,6 @@
 # Meme Stock Consultant
 
-A multi-model stock classification and recommendation pipeline that combines traditional ML (XGBoost / LightGBM), LLM fine-tuning, and a conversational chatbot UI to generate personalized portfolio recommendations.
+A multi-model stock classification and recommendation pipeline that combines traditional ML (XGBoost / LightGBM), LLM fine-tuning, and a conversational chatbot UI to give guidance on whether the user should follow meme stocks. It's not meant to give binary buy-or-don't-buy suggestions and does not promise profits.
 
 ---
 
